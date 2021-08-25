@@ -1,0 +1,81 @@
+.emails-list {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.email-Preview {
+    padding: 10px;
+    cursor: pointer;
+    gap: 50px;
+    display: flex;
+    background-color: #d6cfcf;
+    color: #202124;
+    border: 1px solid gray;
+    align-items: center;
+}
+
+
+
+.email-Preview:hover {
+    position: relative;
+    z-index: 2;
+    background: rgba(242, 245, 245, 0.8);
+    color: #202124;
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
+
+
+/*.email-container{
+
+}*/
+.main-container {
+    display: flex;
+}
+
+.star-icon {
+    color: yellow;
+    font-size: 30px;
+    flex: 1;
+}
+
+.email-Preview  .sentFrom {
+    width: 60px;
+    flex: 2;
+}
+
+.email-Preview .email-body {
+    flex: 4
+}
+
+.email-Preview .time {
+    flex: 1
+}
+
+.email-Preview .message {
+    color: gray;
+}
+
+.email-Preview .subject {
+    font-weight: 500;
+}
+
+/*ASIDENAV*/
+
+.aside-nav {
+    margin-left: 1px;
+    width: 151px;
+    background: whitesmoke;
+}
+
+.aside-nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.aside-nav-list li {
+    margin-bottom: 10px;
+}
+
