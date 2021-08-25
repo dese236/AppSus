@@ -10,13 +10,18 @@ export default class EmailPreview extends React.Component {
   };
 
   render() {
-    const { email } = this.props;
+    const { email ,onRemoveEmail} = this.props;
     const { isDetailsShown } = this.state;
     return (
       <div className="email-container" onClick={this.toggleEmailDetails}>
         <div className="email-Preview">
-          <div className="star-icon">&#9733;</div>
-          <div className="sentFrom">{email.userName.split(" ")[0]}</div>
+          <div
+            className={`star-icon ${
+              email.isStared ? "yellow" : "white"
+            }`}
+          >&#9733;</div>
+          {/*<div className="sentFrom">{email.userName.split(" ")[0]}</div>*/}
+          <div className="sentFrom">{email.userName}</div>
           <div className="email-body">
             <span className="subject">{email.subject} </span>
             <span className="message">{email.body.substring(0, 200)}</span>
@@ -25,7 +30,7 @@ export default class EmailPreview extends React.Component {
             {new Date(email.sentAt).toLocaleTimeString("en-US")}
           </div>
         </div>
-        {isDetailsShown && <EmailDetails email={email} />}
+        {isDetailsShown && <EmailDetails email={email} onRemoveEmail={onRemoveEmail} />}
       </div>
     );
   }

@@ -35,11 +35,18 @@
 }
 
 .star-icon {
-    color: yellow;
     font-size: 30px;
     flex: 1;
 }
 
+
+.yellow{
+    color: yellow;
+}
+
+.white{
+    color: white;
+}
 .email-Preview  .sentFrom {
     width: 60px;
     flex: 2;

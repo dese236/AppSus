@@ -1,0 +1,36 @@
+.newEmail {
+    margin-top: 30px;
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #dedbdb;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+}
+
+.newEmail input {
+    /*width: 100%*/
+    height: 30px;
+}
+
+.newEmail input:first-of-type {
+    margin-top: 30px;
+}
+
+.new-email-header {
+    width: 100%;
+    height: 50px;
+    background-color: #737070;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea {
+    margin-top: 30px;
+}

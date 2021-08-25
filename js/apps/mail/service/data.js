@@ -75,7 +75,7 @@ const defaultEmails = [
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        status: 'sent',
+        status: 'inbox',
         isRead: true,
         isStared: true, 
         lables: ['important', 'romantic'] 
