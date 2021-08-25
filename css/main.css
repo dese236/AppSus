@@ -1,1 +1,3 @@
-@import './setup.css'
+@import './cmps/Nav.css';
+@import './setup.css';
+@import './cmps/Home.css';
