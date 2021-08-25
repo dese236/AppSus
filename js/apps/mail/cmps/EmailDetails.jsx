@@ -1,20 +1,26 @@
-export function EmailDetails({ email }) {
-  return (
-    <div className="email-details">
-      <div className="sentFronName">From:{email.userName}</div>
-      <div className="email-body">
+export class EmailDetails extends React.Component {
+  toggleModal = () => {
+
+
+  };
+
+  render() {
+    const { email } = this.props;
+    return (
+      <div className="email-details">
+        {/*<img src="../../../../css/img/menu.png" />*/}
+        <img src="../../../../css/img/maximize.png" />
+        <img src="../../../../css/img/delete.png" />
         <span className="subject">{email.subject} </span>
+        <div className="sentFronName">
+          From:
+          <span>{email.userName}</span>
+          <small>{email.to}</small>
+        </div>
         <span className="message">{email.body}</span>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-//  userName: loggedinUser.fullname,
-//  id: utilService.makeId(),
-//  subject: 'SENT BY YOU!',
-//  body: 'Would love to catch up sometimes',
-//  isRead: false,
-//  sentAt: 1551133930594,
-//  to: 'user@appsus.com'
-//},
+
