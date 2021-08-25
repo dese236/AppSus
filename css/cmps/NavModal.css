@@ -1,0 +1,17 @@
+.nav-modal{
+    display: flex;
+    background-color: #f0f8ffb3;
+    height: 128px;
+    width: 125px;
+    gap: 8px;
+    position: fixed;
+    top: 84px;
+    right: 22px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-modal img { 
+    height: 50px;
+}
