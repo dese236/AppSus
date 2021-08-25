@@ -1,11 +1,7 @@
 export const utilService = {
     makeId,
     makeLorem,
-<<<<<<< HEAD
     getRandomIntInclusive
-=======
-    getRandomIntInclusive,
->>>>>>> 68911a599900ef027778004731b80bf69213de01
 }
 
 function makeId(length = 6) {
@@ -34,8 +30,3 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 68911a599900ef027778004731b80bf69213de01

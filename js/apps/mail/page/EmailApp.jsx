@@ -6,7 +6,7 @@ import { EmailFolderList } from "../cmps/EmailFolderList.jsx";
 export class MailApp extends React.Component {
   state = {
     emails: [],
-    filterBy: null,
+    filterBy: "inbox",
     userFullName: EmailService.getLoggedUser().fullname,
   };
 
@@ -15,11 +15,16 @@ export class MailApp extends React.Component {
   }
 
   loadEmails = () => {
+    debugger
     EmailService.query(this.state.filterBy).then((emails) => {
       this.setState({ emails });
     });
   };
-
+  onSetFilter = (filterBy) => {
+    debugger
+    this.setState({ filterBy }, this.loadEmails);
+  };
+  
   render() {
     const { emails, userFullName } = this.state;
     if (!emails) return <div>loading</div>;
@@ -27,10 +32,10 @@ export class MailApp extends React.Component {
     return (
       <section>
         {/*{JSON.stringify(this.state.emails, null, 2)}*/}
-        <EmailFilter />
+        <EmailFilter onSetFilter={this.onSetFilter} />
         <div className="main-container">
-          <EmailFolderList />
-          <EmailList emails={emails} userFullName={userFullName} />
+          <EmailFolderList  onSetFilter={this.onSetFilter} />
+          <EmailList  emails={emails} userFullName={userFullName} />
         </div>
       </section>
     );

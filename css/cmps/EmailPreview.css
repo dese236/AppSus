@@ -64,18 +64,19 @@
 /*ASIDENAV*/
 
 .aside-nav {
+    height: 100vh;
     margin-left: 1px;
     width: 151px;
     background: whitesmoke;
 }
 
-.aside-nav-list {
+.aside-nav-list-filter {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.aside-nav-list li {
+.aside-nav-list-filter li {
     margin-bottom: 10px;
 }
 
