@@ -1,6 +1,6 @@
 import {NotePreview} from './NotePreview.jsx';
 export function NoteList({notes }) {
-
+    console.log(notes)
     return (
         <section className="reviews-list">
                     {!notes.length && <div>No Notes yet</div>}

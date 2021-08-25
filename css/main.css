@@ -4,3 +4,5 @@
 @import './cmps/NavModal.css';
 @import './cmps/EmailPreview.css';
 @import './cmps/EmailDetails.css';
+@import './apps/keep/note-preview.css';
+@import './apps/keep/add-note.css';
