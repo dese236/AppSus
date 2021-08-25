@@ -2,3 +2,5 @@
 @import './setup.css';
 @import './cmps/Home.css';
 @import './cmps/NavModal.css';
+@import './cmps/EmailPreview.css';
+@import './cmps/EmailDetails.css';
