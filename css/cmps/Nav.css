@@ -1,0 +1,10 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 21px;
+}
+
+nav img {
+    height: 47px;
+}
