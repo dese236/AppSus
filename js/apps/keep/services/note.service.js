@@ -15,7 +15,7 @@ function getNotes() {
 }
 
 function filterNotes(key){
-    const notes = gNotes.filter(note => note.toLowerCase().includes(key.toLowerCase()))
+    const notes = gNotes.filter(note => note.txt.toLowerCase().includes(key.toLowerCase()))
     console.log(notes);
     return Promise.resolve(notes);
 }

@@ -5,7 +5,6 @@ export const utilServices = {
 }
 
 function makeId(length = 6) {
-    debugger
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
