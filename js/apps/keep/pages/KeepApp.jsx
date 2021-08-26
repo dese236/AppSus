@@ -85,7 +85,7 @@ export class KeepApp extends React.Component {
       {/* create route for pages */}
       <SearchBar onSetKey={this.onSetKey} />
       <NoteFilter onFilter={this.onFilter} />
-      <Route path="/keep/edit" component={(props) => <Edit {...props} openContent={this.openContent} isNoteContentOpen={isNoteContentOpen}/>} />
+      <Route path="/keep/edit" component={Edit} />
       <Route path="/keep/arcive" component={Arcive} />
       <Route path="/keep/trash" component={Trash} />
       <Navigator  />

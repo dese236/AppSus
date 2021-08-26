@@ -21,4 +21,3 @@ render(){
 
 }
 
-//<iframe className="my-video"src={note.src} frameBorder="0" type="html" width="100%" height="100%"></iframe>

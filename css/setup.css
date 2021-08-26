@@ -4,3 +4,10 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
   }
+
+
+  .hero img {
+    width: 100vw;
+    height: 70vh;
+   object-fit:cover;
+  }
