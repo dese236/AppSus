@@ -25,7 +25,6 @@ export class MailApp extends React.Component {
     this.setState({ filterBy }, this.loadEmails);
   };
 
-
   SendNewEmail = (email) => {
     EmailService.createEmail(email)
       .then(this.loadEmails)
@@ -56,6 +55,13 @@ export class MailApp extends React.Component {
       .then(this.loadEmails)
       .then(this.props.history.push(`/mail`));
   };
+
+  onSortEmails = (elSortBy) => {
+    EmailService.sortEmails(elSortBy)
+      .then(this.loadEmails)
+      .then(this.props.history.push(`/mail`));
+  };
+
   render() {
     console.log("render");
     const { emails, userFullName } = this.state;
@@ -76,6 +82,7 @@ export class MailApp extends React.Component {
             onSetFilter={this.onSetFilter}
           />
           <EmailList
+            onSortEmails={this.onSortEmails}
             onToggleIsRead={this.onToggleIsRead}
             onReadEmail={this.onReadEmail}
             ontoggleStar={this.ontoggleStar}

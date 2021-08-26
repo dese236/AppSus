@@ -10,17 +10,20 @@ export const EmailService = {
     toggleStar,
     readEmail,
     toggleIsRead,
-    getEmailById
+    getEmailById,
+    sortEmails
 }
 
 let gEmails = []
 const KEY = 'Emails'
-
+let gOrder = true
 _createEmails();
 
 
 
 function query(filterBy) {
+    debugger
+    gEmails = storageService.loadFromStorage(KEY)
     if (filterBy) {
         let { status, isRead, isStared, lables, txt } = filterBy
         status = status ? status : ''
@@ -82,14 +85,12 @@ function getLoggedUser() {
 function createEmail(email) {
     email.id = utilService.makeId()
     email.isRead = false
-    email.sentAt = Math.floor(Date.now() /1000)
-    this.status = 'inbox'
+    email.sentAt = Math.floor(Date.now() / 1000)
     email.to = 'momo@momo.com'
     email.isStared = false
-    email.status = 'inbox'
+    email.status = 'sent'
     email.lables = ['important', 'romantic']
-    email.userName = 'popo'
-
+    email.userName = dataSrevice.loggedinUser.fullname
     email.id = utilService.makeId()
     gEmails.unshift(email)
     _saveEmailsToStorage()
@@ -128,19 +129,40 @@ function toggleIsRead(emailId) {
 }
 
 
-function getEmailById(emailId)
-{
+function getEmailById(emailId) {
     const email = gEmails.find(email => email.id === emailId)
     return Promise.resolve(email);
 }
 
-        //isRead = isRead ? isRead : true
-        //isStared = isStared ? true : false
 
-        //var emailsToShow = gEmails.filter(email =>
-        //    email.status === status
-        //)
 
-        //const emailsToShow = gEmails.filter(email => {
-        // return   (email.status === status && email.isRead === isRead) || (isStared && email.isStared === true)
-        //})
+function sortEmails(elSortBy) {
+    gOrder = !gOrder
+    debugger
+
+    if (elSortBy === 'name') {
+
+        gEmails.sort(function (email1, email2) {
+            var emailA = email1.userName.toUpperCase();
+            var emailb = email2.userName.toUpperCase()
+            if (gOrder) {
+                if (emailA > emailb) return 1
+                if (emailA < emailb) return -1
+                return 0;
+            }
+            else {
+                if (emailA < emailb) return 1
+                if (emailA > emailb) return -1
+                return 0;
+            }
+        });
+
+    }
+    else {
+
+        if (elSortBy === 'date')
+             gEmails.sort((email1, email2) => email1.date - email2.date)
+    }
+    _saveEmailsToStorage()
+    return Promise.resolve();
+}

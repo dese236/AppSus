@@ -6,14 +6,15 @@ export function EmailList({
   onRemoveEmail,
   onToggleIsRead,
   onReadEmail,
+  onSortEmails
 }) {
   return (
     <section className="emails-list">
       <div className="emails-list-heder">
         <span className="favorite">favorite</span>
-        <span className="name">name</span>
+        <span  onClick={()=>{onSortEmails('name')}} className="name">name</span>
         <span className="message">message</span>
-        <span className="date">date</span>
+        <span onClick={()=>{onSortEmails('date')}} className="date">date</span>
       </div>
       {emails.map((email) => {
         return (
