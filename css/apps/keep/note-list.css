@@ -13,4 +13,5 @@
     align-content: flex-start;
     max-height: 140vh; 
     max-width: 100vw;
+    margin-block-start: 30px;
 }
