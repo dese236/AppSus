@@ -1,0 +1,31 @@
+
+
+.navigator{
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nav-icon{
+    display: flex;
+    height: 42px;
+    width: 42px;
+    padding:5px;
+    justify-content:center;
+    align-items: center;
+}
+
+.nav-icon svg{
+    width: 70%;
+    height: 70%;
+    /* padding: 4px; */
+}
+
+.nav-icon:hover{
+    background-color:white;
+    border-radius: 50%;
+
+}

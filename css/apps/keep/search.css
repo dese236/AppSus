@@ -1,0 +1,14 @@
+
+.search-bar{
+    border:none ;
+    margin:10px ;
+    font-size: 1.5rem;
+    font-weight:lighter;
+    color:rgb(82, 76, 76);
+    border-radius:30px;
+    padding-inline :20px;
+    padding-block : 10px;
+    background-color: rgba(253, 249, 249, 0.774);
+
+
+}

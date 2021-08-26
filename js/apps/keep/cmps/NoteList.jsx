@@ -1,6 +1,5 @@
 import {NotePreview} from './NotePreview.jsx';
 export function NoteList({notes , onLoadNotes }) {
-    console.log(notes)
     return (
         <section className="note-list">
                     {!notes.length && <div>No Notes yet</div>}
@@ -12,4 +11,3 @@ export function NoteList({notes , onLoadNotes }) {
                 </section>
         )
 }
-{/* <div>hello keep</div> */}

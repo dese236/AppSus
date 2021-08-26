@@ -14,6 +14,7 @@ export class TxtNote extends React.Component {
         const {color} = this.state
             return (
                 <div className="txt-note-card card" style={{backgroundColor:color}}>
+                    <small>{note.noteDate}'</small>
                     <h4>{note.txt}</h4>
                     <NoteOpt note={note} onLoadNotes={onLoadNotes} />
                 </div>

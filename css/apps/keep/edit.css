@@ -1,0 +1,38 @@
+
+
+.edit{
+    display:flex;
+    width:80vw;
+    flex-direction: column;
+    margin: auto;    
+    box-shadow: -7px -6px 18px -16px rgba(0,0,0,0.6);
+}
+
+
+.edit input {
+    width: 100%;
+    margin : 0 ;
+    border: none;
+    padding: 10px;
+    /* height:40px */
+}
+
+input.note-content {
+    height:120px ;
+    /* border: 0px; */
+    border-top : 1px solid rgba(122, 122, 122, 0.288);
+    border-end-start-radius:10px ;
+    border-end-end-radius: 10px;
+    /* border: none; */
+}
+input.note-title {
+    height:40px ;
+    /* border-top : 1px solid #000; */
+    /* border: none; */
+    border-radius: 10px;
+}
+input.note-title.clicked {
+
+    border-end-start-radius:0 ;
+    border-end-end-radius: 0;
+}
