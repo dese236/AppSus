@@ -4,9 +4,19 @@
 @import './cmps/NavModal.css';
 @import './cmps/EmailPreview.css';
 @import './cmps/EmailDetails.css';
+<<<<<<< HEAD
 @import './apps/keep/note-preview.css';
 @import './apps/keep/add-note.css';
 @import './apps/keep/note-list.css';
 @import './apps/keep/navigator.css';
 @import './apps/keep/edit.css';
 @import './apps/keep/search.css';
+=======
+@import './cmps/NewMail.css';
+@import './cmps/OpenEmail.css';
+@import './cmps/EmailFolderList.css';
+@import './apps/keep/add-note.css';
+@import './apps/keep/note-list.css';
+@import './apps/keep/note-preview.css';
+
+>>>>>>> fe0e5612ecbe49dc5b992f1ea458a58aaaafe9d9

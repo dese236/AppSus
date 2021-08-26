@@ -1,4 +1,6 @@
-import { NewMail } from "./NewMail.jsx";
+import { eventBusService } from "../../../services/event-bus-service.js";
+//import { NewMail } from "./NewMail.jsx";
+const { Link, Route } = ReactRouterDOM;
 
 export class EmailFolderList extends React.Component {
   state = {
@@ -7,31 +9,46 @@ export class EmailFolderList extends React.Component {
       isRead: "",
       isStared: false,
       lables: "",
+      txt: "",
     },
     newMail: false,
   };
+  componentDidMount() {
+    this.removeEventBus = eventBusService.on("input-txt", this.handleChange);
+  }
 
   handleChange = (ev) => {
+    debugger;
     const field = ev.target.name;
     const value =
       ev.target.type === "button"
         ? ev.target.defaultValue
-        : ev.target.defaultValue.toUpperCase();
+        : ev.target.value.toUpperCase();
 
-    this.setState(
-      {
-        filterBy: {
-          status: "",
-          isRead: "",
-          isStared: false,
-          lables: "",
-          [field]: value,
+    if (field === "txt" || field === "isRead") {
+      this.setState(
+        { filterBy: { ...this.state.filterBy, [field]: value } },
+        () => {
+          this.props.onSetFilter(this.state.filterBy);
+        }
+      );
+    } else {
+      this.setState(
+        {
+          filterBy: {
+            status: "",
+            isRead: "",
+            isStared: false,
+            lables: "",
+            txt: "",
+            [field]: value,
+          },
         },
-      },
-      () => {
-        this.props.onSetFilter(this.state.filterBy);
-      }
-    );
+        () => {
+          this.props.onSetFilter(this.state.filterBy);
+        }
+      );
+    }
   };
 
   onNewEmail = () => {
@@ -44,15 +61,20 @@ export class EmailFolderList extends React.Component {
     return (
       <div className="aside-nav">
         <ul className="aside-nav-list-filter">
-          <button onClick={this.onNewEmail}>+</button>
-          {this.state.newMail && <NewMail SendNewEmail={this.props.SendNewEmail} />}
+          {/*<button onClick={this.onNewEmail}>+</button>*/}
+          <li>
+            <Link exact to="/mail/mail/new">
+              <img src="../../../../css/img/plus-btn.png" />
+            </Link>
+          </li>
           <li>
             <input
               name="status"
               type="button"
               value="inbox"
               onClick={this.handleChange}
-            ></input>
+            />
+           <img src="../../../../css/img/inbox.png" />
           </li>
           <li>
             <input
@@ -80,6 +102,6 @@ export class EmailFolderList extends React.Component {
           </li>
         </ul>
       </div>
-    )
+    );
   }
-};
+}

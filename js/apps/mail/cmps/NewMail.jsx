@@ -16,18 +16,21 @@ export class NewMail extends React.Component {
     }));
   };
 
-
-  onSendNewEmail = () => {
+  onSendNewEmail = (ev) => {
+    ev.preventDefault();
     let newMail = {
       subject: this.state.email.subject,
       body: this.state.email.message,
     };
-    this.props.SendNewEmail(newMail)
+    EmailService.createEmail(newMail)
+      .then(() => this.props.loadEmails())
+      .then(() => {
+        this.props.history.push(`/mail`);
+      });
   };
 
-
   render() {
-    const { SendNewEmail } = this.props.SendNewEmail;
+    //const { SendNewEmail } = this.props.SendNewEmail;
     const { subject, message } = this.state.email;
     return (
       <form className="newEmail" onSubmit={this.onSendNewEmail}>

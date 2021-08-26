@@ -6,7 +6,11 @@ export const EmailService = {
     query,
     getLoggedUser,
     createEmail,
-    removeEmail
+    removeEmail,
+    toggleStar,
+    readEmail,
+    toggleIsRead,
+    getEmailById
 }
 
 let gEmails = []
@@ -14,34 +18,34 @@ const KEY = 'Emails'
 
 _createEmails();
 
+
+
 function query(filterBy) {
     if (filterBy) {
-        let { status, isRead, isStared, lables } = filterBy
+        let { status, isRead, isStared, lables, txt } = filterBy
         status = status ? status : ''
+
         if (status) {
-            debugger
             var emailsToShow = gEmails.filter(email =>
                 email.status === status
             )
-            return Promise.resolve(emailsToShow)
         }
-
         if (isStared) {
             var emailsToShow = gEmails.filter(email =>
-                email.isStared === true
+                email.isStared === true && email.status !== 'trash'
             )
-            return Promise.resolve(emailsToShow)
         }
-        //isRead = isRead ? isRead : true
-        //isStared = isStared ? true : false
-
-        var emailsToShow = gEmails.filter(email =>
-            email.status === status
-        )
-
-        //const emailsToShow = gEmails.filter(email => {
-        // return   (email.status === status && email.isRead === isRead) || (isStared && email.isStared === true)
-        //})
+        if (txt) {
+            emailsToShow = emailsToShow.filter(email =>
+                email.body.toUpperCase().includes(txt) || email.subject.toUpperCase().includes(txt) || email.userName.toUpperCase().includes(txt)
+            )
+        }
+        if (isRead && isRead !== 'ALL') {
+            debugger
+            emailsToShow = emailsToShow.filter(email =>
+                email.isRead + '' === isRead.toLowerCase()
+            )
+        }
         return Promise.resolve(emailsToShow)
     }
 
@@ -94,9 +98,51 @@ function createEmail(email) {
 }
 
 function removeEmail(emailId) {
-    debugger
+
     const emailIdx = gEmails.findIndex(email => email.id === emailId)
     gEmails[emailIdx].status = 'trash';
     _saveEmailsToStorage()
     return Promise.resolve();
 }
+
+function toggleStar(emailId) {
+    const emailIdx = gEmails.findIndex(email => email.id === emailId)
+    gEmails[emailIdx].isStared = !gEmails[emailIdx].isStared
+    _saveEmailsToStorage()
+    return Promise.resolve();
+}
+
+
+function readEmail(emailId) {
+    const emailIdx = gEmails.findIndex(email => email.id === emailId)
+    gEmails[emailIdx].isRead = true
+    _saveEmailsToStorage()
+    return Promise.resolve();
+
+}
+function toggleIsRead(emailId) {
+    debugger
+    const emailIdx = gEmails.findIndex(email => email.id === emailId)
+    gEmails[emailIdx].isRead = !gEmails[emailIdx].isRead
+    _saveEmailsToStorage()
+    return Promise.resolve();
+
+}
+
+
+function getEmailById(emailId)
+{
+    const email = gEmails.find(email => email.id === emailId)
+    return Promise.resolve(email);
+}
+
+        //isRead = isRead ? isRead : true
+        //isStared = isStared ? true : false
+
+        //var emailsToShow = gEmails.filter(email =>
+        //    email.status === status
+        //)
+
+        //const emailsToShow = gEmails.filter(email => {
+        // return   (email.status === status && email.isRead === isRead) || (isStared && email.isStared === true)
+        //})

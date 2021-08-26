@@ -1,33 +1,43 @@
-.email-details > * {
+.email-details>* {
     font-size: 20px;
-    
-}
-.email-details{
-    position: relative;
-    padding: 30px;
-    background: white;    
-}
-.email-details .sentFronName > *{
-    margin-left:5px ;
 }
 
-small { 
+.email-details {
+    position: relative;
+    padding: 30px;
+    background: white;
+}
+
+.email-details .sentFronName>* {
+    margin-left: 5px;
+}
+
+small {
     font-size: 14px;
     color: gray;
 }
-.email-details img{
+
+.email-details img {
     cursor: pointer;
     height: 30px;
     position: absolute;
 }
-.email-details img:first-of-type{
+
+.email-details img:first-of-type {
     top: 12px;
     right: 62px;
 }
-.email-details img:last-of-type{
+
+.email-details img:last-of-type {
     top: 12px;
     right: 15px;
 }
+
+.email-details img:nth-of-type(2) {
+    top: 12px;
+    right: 110px;
+}
+
 /*.email-details img:nth-of-type(3){
     top: 12px;
     right: 15px;

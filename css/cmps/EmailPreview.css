@@ -16,6 +16,10 @@
 }
 
 
+.read { 
+    background-color: white;
+}
+
 
 .email-Preview:hover {
     position: relative;
@@ -44,8 +48,8 @@
     color: yellow;
 }
 
-.white{
-    color: white;
+.grey{
+    color: grey;
 }
 .email-Preview  .sentFrom {
     width: 60px;
@@ -67,6 +71,7 @@
 .email-Preview .subject {
     font-weight: 500;
 }
+
 
 /*ASIDENAV*/
 

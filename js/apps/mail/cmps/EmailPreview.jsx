@@ -3,24 +3,40 @@ import { EmailDetails } from "./EmailDetails.jsx";
 export default class EmailPreview extends React.Component {
   state = {
     isDetailsShown: false,
+    isRead: this.props.email.isRead,
   };
 
-  toggleEmailDetails = () => {
+  toggleEmailDetails = (emailId) => {
+    this.setState({ isRead: true });
+    this.props.onReadEmail(emailId);
     this.setState({ isDetailsShown: !this.state.isDetailsShown });
   };
 
+  onChangeToUnread = (ev,emailId) => {
+    this.props.onToggleIsRead(ev,emailId);
+    this.setState({ isRead: false });
+    this.setState({ isDetailsShown: false });
+  };
+
   render() {
-    const { email ,onRemoveEmail} = this.props;
-    const { isDetailsShown } = this.state;
+    const { email, onRemoveEmail, ontoggleStar } = this.props;
+    const { isDetailsShown, isRead } = this.state;
     return (
-      <div className="email-container" onClick={this.toggleEmailDetails}>
-        <div className="email-Preview">
+      <div
+        className="email-container"
+        onClick={() => {
+          this.toggleEmailDetails(email.id);
+        }}
+      >
+        <div className={isRead ? "email-Preview read" : "email-Preview"}>
           <div
-            className={`star-icon ${
-              email.isStared ? "yellow" : "white"
-            }`}
-          >&#9733;</div>
-          {/*<div className="sentFrom">{email.userName.split(" ")[0]}</div>*/}
+            onClick={(ev) => {
+              ontoggleStar(ev,email.id);
+            }}
+            className={`star-icon ${email.isStared ? "yellow" : "grey"}`}
+          >
+            &#9733;
+          </div>
           <div className="sentFrom">{email.userName}</div>
           <div className="email-body">
             <span className="subject">{email.subject} </span>
@@ -30,7 +46,14 @@ export default class EmailPreview extends React.Component {
             {new Date(email.sentAt).toLocaleTimeString("en-US")}
           </div>
         </div>
-        {isDetailsShown && <EmailDetails email={email} onRemoveEmail={onRemoveEmail} />}
+        {isDetailsShown && (
+          <EmailDetails
+            toggleEmailDetails={this.toggleEmailDetails}
+            onChangeToUnread={this.onChangeToUnread}
+            email={email}
+            onRemoveEmail={onRemoveEmail}
+          />
+        )}
       </div>
     );
   }

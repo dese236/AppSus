@@ -1,20 +1,26 @@
+import { eventBusService } from "../../../services/event-bus-service.js";
+
 export class EmailFilter extends React.Component {
-  //handleChange = (ev) => {
-  //  const field = ev.target.name;
-  //  const value =
-  //    ev.target.type === "number" ? +ev.target.value : ev.target.value;
-  //  this.setState(
-  //    { filterBy: { ...this.state.filterBy, [field]: value } },
-  //    () => {
-  //      this.props.onSetFilter(this.state.filterBy);
-  //    }
-  //  );
-  //};
+  handleTxtChange = (ev) => {
+    debugger;
+    this.removeEventBus = eventBusService.emit("input-txt", ev);
+  };
 
   render() {
     return (
       <form className="search-mail-input">
-        <input type="text" />
+        <select name='isRead' onChange={this.handleTxtChange}>
+        <option value="all">all</option>
+          <option value="true">read</option>
+          <option value="false">unread</option>
+        </select>
+        <input
+          name="txt"
+          type="text"
+          id="txt"
+          onChange={this.handleTxtChange}
+          placeholder="Enter Name"
+        ></input>
       </form>
     );
   }
