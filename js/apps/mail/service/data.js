@@ -23,7 +23,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'user@appsus.com',
         status: 'sent',
-        isRead: false,
         isStared: true, 
         lables: ['important', 'romantic'] 
     },
@@ -36,7 +35,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'user@appsus.com',
         status: 'sent',
-        isRead: true,
         isStared: true, 
         lables: ['important', 'romantic'] 
     },
@@ -49,7 +47,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isRead: true,
         isStared: true, 
         lables: ['important', 'romantic'] 
     },
@@ -62,7 +59,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isRead: true,
         isStared: true, 
         lables: ['important', 'romantic'] 
     }
@@ -76,7 +72,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isRead: true,
         isStared: true, 
         lables: ['important', 'romantic'] 
     }
@@ -90,7 +85,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isRead: true,
         isStared: false, 
         lables: ['important', 'romantic'] 
     }
@@ -104,7 +98,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isRead: true,
         isStared: false, 
         lables: ['important', 'romantic'] 
     }
@@ -119,7 +112,6 @@ const defaultEmails = [
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isRead: true,
         isStared: true, 
         lables: ['important', 'romantic'] 
     }
