@@ -2,6 +2,7 @@ import { SearchBar } from '../cmps/SearchBar.jsx';
 import { noteServices } from '../services/note.service.js'
 import {AddNote} from '../cmps/AddNote.jsx'
 import { NoteList } from '../cmps/NoteList.jsx';
+import {NoteFilter} from '../cmps/NoteFilter.jsx';
 export class KeepApp extends React.Component {
 
   state = {
@@ -22,8 +23,8 @@ export class KeepApp extends React.Component {
     console.log(this.state.notes , 'the notes afte load');
 
   }
-  onFilterNotes = (key) => {
-    noteServices.filterNotes(key).then((notes)=> {
+  onSearchNotes = (key) => {
+    noteServices.searchNotes(key).then((notes)=> {
       this.setState({ notes})
 
     })
@@ -31,7 +32,7 @@ export class KeepApp extends React.Component {
 
   onSetKey = (searchKey) => {
     this.setState({searchKey})
-    this.onFilterNotes(searchKey)
+    this.onSearchNotes(searchKey)
   }
 
   onAddNote = (note) => {
@@ -40,6 +41,12 @@ export class KeepApp extends React.Component {
 
 
   }
+
+  onFilter= (noteType) => {
+    noteServices.filterNotes(noteType).then((notes)=> {
+      this.setState({ notes})
+  })
+}
 
 //   onAddNote = () => {
 //     const id = this.state.book.id
@@ -59,7 +66,9 @@ export class KeepApp extends React.Component {
     return (<div>
       <SearchBar onSetKey={this.onSetKey} />
       <AddNote onAddNote={this.onAddNote} onUpdateNote={this.onUpdateNote} />
+      <NoteFilter onFilter={this.onFilter}/>
       <NoteList notes={notes} onLoadNotes={this.onLoadNotes}/>
+
     </div>)
 
   }

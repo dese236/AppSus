@@ -1,9 +1,10 @@
 import { storageService } from "../../../services/storage.service.js";
 export const noteServices = {
     getNotes,
-    filterNotes,
+    searchNotes,
     addNote,
     deleteNote,
+    filterNotes,
 }
 
 const KEY = 'keepDB'
@@ -83,9 +84,15 @@ function getNotes() {
     return Promise.resolve(gNotes);
 }
 
-function filterNotes(key) {
+function searchNotes(key) {
     const notes = gNotes.filter(note => note.txt.toLowerCase().includes(key.toLowerCase()))
     console.log(notes);
+    return Promise.resolve(notes);
+}
+function filterNotes(noteType) {
+    if(noteType === 'all') return Promise.resolve(gNotes)
+    const notes = gNotes.filter(note => note.noteType === noteType)
+    console.log(notes , 'from filter');
     return Promise.resolve(notes);
 }
 
@@ -96,6 +103,7 @@ function addNote(note) {
     storageService.saveToStorage(KEY , gNotes);
     return Promise.resolve(gNotes);
 }
+
 
 
 function deleteNote(noteId){
