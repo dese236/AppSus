@@ -6,7 +6,7 @@
     align-items: center;
 } */
 
-.reviews-list{
+.note-list{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

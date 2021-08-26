@@ -12,8 +12,8 @@ render(){
         const {color} = this.state
     return(
         <div className="video-note-card card" style={{backgroundColor:color}}>
-            <NoteOpt note={note} onLoadNotes={onLoadNotes}/>
             <iframe className="my-video"src={note.src} frameBorder="0" type="html" width="100%" height="100%"></iframe>
+            <NoteOpt note={note} onLoadNotes={onLoadNotes}/>
         </div>
     )
 

@@ -2,7 +2,7 @@ import {NotePreview} from './NotePreview.jsx';
 export function NoteList({notes , onLoadNotes }) {
     console.log(notes)
     return (
-        <section className="reviews-list">
+        <section className="note-list">
                     {!notes.length && <div>No Notes yet</div>}
                     {notes && (notes.map((note) => 
         

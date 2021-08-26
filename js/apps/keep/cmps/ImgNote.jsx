@@ -14,8 +14,8 @@ export class ImgNote extends React.Component {
         const {color} = this.state 
         return (
             <div className="img-note-card card" style={{backgroundColor:color}}>
-                <NoteOpt color={color} note={note} onLoadNotes={onLoadNotes} onSetColor={this.onSetColor}/>
                 <img src={note.src} alt="img" />
+                <NoteOpt color={color} note={note} onLoadNotes={onLoadNotes} onSetColor={this.onSetColor}/>
             </div>
         )
     }
