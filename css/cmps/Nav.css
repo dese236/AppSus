@@ -3,8 +3,71 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 21px;
+    background-color: #333;
+    color: white;
 }
 
 nav img {
     height: 47px;
+}
+
+.call-to-action {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 53px;
+    border-radius: 22px;
+    background-color: #000000b0;
+    padding: 5px 30px;
+    text-align: center;
+    padding-bottom: 21px;
+    color: white;
+}
+
+.featuers-appsus {
+    position: relative;
+    height: 150px;
+    width: 100%;
+    background-color: #A9F1DF;
+    margin-top: -4px;
+}
+
+.featuers-appsus div {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.img-for-features {
+    display: flex;
+    padding-top: 100px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    height: 40vw;
+    background-color: #333;
+    margin: 0 auto;
+}
+
+/*.img-for-features img{
+    height: 200px;
+    width: 200px;
+}*/
+
+.img-for-features img {
+    height: 25vw;
+    width: 25vw;
+    object-fit: cover;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
 }
