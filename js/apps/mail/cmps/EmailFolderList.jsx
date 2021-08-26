@@ -18,7 +18,6 @@ export class EmailFolderList extends React.Component {
   }
 
   handleChange = (ev) => {
-    debugger;
     const field = ev.target.name;
     const value =
       ev.target.type === "button"
@@ -68,37 +67,43 @@ export class EmailFolderList extends React.Component {
             </Link>
           </li>
           <li>
+            <img src="../../../../css/img/inbox.png" />
+
             <input
               name="status"
               type="button"
               value="inbox"
               onClick={this.handleChange}
             />
-           <img src="../../../../css/img/inbox.png" />
           </li>
           <li>
+            <img src="../../../../css/img/star.png" />
+
             <input
               name="isStared"
               type="button"
               value="Stared"
               onClick={this.handleChange}
-            ></input>
+            />
           </li>
           <li>
+            <img src="../../../../css/img/share.png" />
+
             <input
               name="status"
               type="button"
               value="sent"
               onClick={this.handleChange}
-            ></input>
+            />
           </li>
           <li>
+            <img src="../../../../css/img/trash-can.png" />
             <input
               name="status"
               type="button"
               value="trash"
               onClick={this.handleChange}
-            ></input>
+            />
           </li>
         </ul>
       </div>

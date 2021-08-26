@@ -18,88 +18,88 @@ const defaultEmails = [
         userName: loggedinUser.fullname,
         id: utilService.makeId(),
         subject: 'SENT BY YOU!',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: false,
         sentAt: 1551133930594,
         to: 'user@appsus.com',
         status: 'sent',
-        isStared: true, 
-        lables: ['important', 'romantic'] 
+        isStared: true,
+        lables: ['important', 'romantic']
     },
     {
         userName: loggedinUser.fullname,
         id: utilService.makeId(),
         subject: 'SENT BY YOU!',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: false,
         sentAt: 1551133930594,
         to: 'user@appsus.com',
         status: 'sent',
-        isStared: true, 
-        lables: ['important', 'romantic'] 
+        isStared: true,
+        lables: ['important', 'romantic']
     },
     {
         userName: 'inbox1',
         id: utilService.makeId(),
         subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isStared: true, 
-        lables: ['important', 'romantic'] 
+        isStared: true,
+        lables: ['important', 'romantic']
     },
     {
         userName: 'inbox2',
         id: utilService.makeId(),
         subject: 'Miss you',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isStared: true, 
-        lables: ['important', 'romantic'] 
+        isStared: true,
+        lables: ['important', 'romantic']
     }
     ,
     {
         userName: 'niv',
         id: utilService.makeId(),
         subject: 'Miss you',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isStared: true, 
-        lables: ['important', 'romantic'] 
+        isStared: true,
+        lables: ['important', 'romantic']
     }
     ,
     {
         userName: 'inbox3',
         id: utilService.makeId(),
         subject: 'Miss you',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isStared: false, 
-        lables: ['important', 'romantic'] 
+        isStared: false,
+        lables: ['important', 'romantic']
     }
     ,
     {
         userName: 'inbox4',
         id: utilService.makeId(),
         subject: 'Miss you',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isStared: false, 
-        lables: ['important', 'romantic'] 
+        isStared: false,
+        lables: ['important', 'romantic']
     }
 
     ,
@@ -107,13 +107,13 @@ const defaultEmails = [
         userName: 'inbox4',
         id: utilService.makeId(),
         subject: 'Miss you',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(),
         isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox',
-        isStared: true, 
-        lables: ['important', 'romantic'] 
+        isStared: true,
+        lables: ['important', 'romantic']
     }
 ]
 

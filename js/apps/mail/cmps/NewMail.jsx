@@ -34,7 +34,7 @@ export class NewMail extends React.Component {
     const { subject, message } = this.state.email;
     return (
       <form className="newEmail" onSubmit={this.onSendNewEmail}>
-        <div className="new-email-header">NEW email</div>
+        <div className="new-email-header">New Email</div>
         <input
           type="text"
           placeholder="TO"

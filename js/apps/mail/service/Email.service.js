@@ -41,7 +41,6 @@ function query(filterBy) {
             )
         }
         if (isRead && isRead !== 'ALL') {
-            debugger
             emailsToShow = emailsToShow.filter(email =>
                 email.isRead + '' === isRead.toLowerCase()
             )
@@ -83,7 +82,7 @@ function getLoggedUser() {
 function createEmail(email) {
     email.id = utilService.makeId()
     email.isRead = false
-    email.sentAt = new Date()
+    email.sentAt = Math.floor(Date.now() /1000)
     this.status = 'inbox'
     email.to = 'momo@momo.com'
     email.isStared = false
@@ -121,7 +120,6 @@ function readEmail(emailId) {
 
 }
 function toggleIsRead(emailId) {
-    debugger
     const emailIdx = gEmails.findIndex(email => email.id === emailId)
     gEmails[emailIdx].isRead = !gEmails[emailIdx].isRead
     _saveEmailsToStorage()

@@ -13,6 +13,6 @@
 @import './apps/keep/edit.css';
 @import './apps/keep/navigator.css';
 @import './apps/keep/search.css';
-
 @import './apps/keep/note-filter.css';
+@import './cmps/EmailList.css';
 

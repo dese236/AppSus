@@ -28,7 +28,6 @@ export function Home() {
           <img src="../../css/img/book-homepage.jpg" />
         </Link>
       </div>
-      <progresbar now="60" />
     </section>
   );
 }

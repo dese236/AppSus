@@ -71,3 +71,8 @@ a:link {
 a:visited {
     color: white;
 }
+
+a {
+    transition: all 0.5s linear;
+    transition: 0.4s;
+    }

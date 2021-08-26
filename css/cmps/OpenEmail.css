@@ -1,5 +1,6 @@
-.EmailFullDetails{
-    height: 500px;
-    width: 400px;
-    background-color: khaki;
+.EmailFullDetails {
+    height: 80vh;
+    margin: 0 auto;
+    width: 80vw;
+    background-color: #e4e3d9;
 }

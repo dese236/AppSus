@@ -40,7 +40,7 @@ export default class EmailPreview extends React.Component {
           <div className="sentFrom">{email.userName}</div>
           <div className="email-body">
             <span className="subject">{email.subject} </span>
-            <span className="message">{email.body.substring(0, 200)}</span>
+            <span className="message">{email.body.substring(0, 100)}</span>
           </div>
           <div className="time">
             {new Date(email.sentAt).toLocaleTimeString("en-US")}

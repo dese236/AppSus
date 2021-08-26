@@ -64,14 +64,11 @@ export class MailApp extends React.Component {
     return (
       <section>
         <Route
-          exact
           path="/mail/mail/new"
           render={(props) => (
             <NewMail {...props} loadEmails={this.loadEmails} />
           )}
         />
-        {/*<Route path="/mail/mail/new"
-         component={NewMail} />*/}
         <EmailFilter onSetFilter={this.onSetFilter} />
         <div className="main-container">
           <EmailFolderList

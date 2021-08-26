@@ -1,0 +1,37 @@
+/*<div className="emails-list-heder">
+<span className="favorite">favorite</span>
+<span className="name">name</span>
+<span className="message">message</span>
+<span className="date">date</span>*/
+
+/*.emails-list-heder > span {
+flex:1
+
+}*/
+
+.emails-list-heder {
+    font-size: 17px;
+    display: flex;
+    background: #5faba473;
+    width: 100%;
+    gap: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+.emails-list-heder span.message
+{
+    flex: 3;
+}
+.emails-list-heder  span.name
+{
+    flex: 1;
+}
+.emails-list-heder  .favorit
+{
+    flex: 0.5;
+}
+.emails-list-heder  .date
+{
+    flex: 1;
+}

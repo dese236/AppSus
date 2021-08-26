@@ -1,13 +1,12 @@
 .newEmail {
-    margin-top: 30px;
     z-index: 5;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #dedbdb;
-    height: 500px;
-    width: 500px;
+    background-color: #c1c1c1;
+    height: 416px;
+    width: 512px;
     display: flex;
     flex-direction: column;
     border: 1px solid gray;
@@ -15,22 +14,38 @@
 
 .newEmail input {
     /*width: 100%*/
+    border: none;
+    border-bottom: 1px solid #00000085;
     height: 30px;
 }
 
-.newEmail input:first-of-type {
-    margin-top: 30px;
-}
-
 .new-email-header {
+    border: none;
     width: 100%;
     height: 50px;
-    background-color: #737070;
+    background-color: #2b2626;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.newEmail button {
+    margin: 0 auto;
+    height: 33px;
+    background-color: #79a99d;
+    border: none;
+    border-radius: 20px;
+    margin-top: 11px;
+    font-size: 22px;
+    width: 146px;
+    cursor: pointer
+}
+
+
+button:hover {
+    background-color: #579787;
+}
 textarea {
-    margin-top: 30px;
+    border: none;
 }

@@ -6,7 +6,6 @@ export class OpenEmail extends React.Component {
   };
 
   componentDidMount() {
-    debugger
     const emailId = this.props.match.params.emailId;
     if (!emailId) return;
     EmailService.getEmailById(emailId).then((email) => {
@@ -20,9 +19,11 @@ export class OpenEmail extends React.Component {
     return (
       <section className="EmailFullDetails">
         <div>{email.subject}</div>
+        <div>from: <span>{email.userName}</span> </div>
+        <div>to:<span>{email.to}</span></div>
+        ..........................
         <div>{email.body}</div>
-        <div>date:{email.sentAt}</div>
-        <div>to:{email.to}</div>
+        <div className="date">date:{email.sentAt}</div>
       </section>
     );
   }
