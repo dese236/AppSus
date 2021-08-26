@@ -6,7 +6,7 @@ import { EmailFolderList } from "../cmps/EmailFolderList.jsx";
 export class MailApp extends React.Component {
   state = {
     emails: [],
-    filterBy: "inbox",
+    filterBy: null,
     userFullName: EmailService.getLoggedUser().fullname,
   };
 
@@ -15,17 +15,28 @@ export class MailApp extends React.Component {
   }
 
   loadEmails = () => {
-    debugger
     EmailService.query(this.state.filterBy).then((emails) => {
       this.setState({ emails });
     });
   };
   onSetFilter = (filterBy) => {
-    debugger
     this.setState({ filterBy }, this.loadEmails);
   };
-  
+
+  SendNewEmail = (email) => {
+    EmailService.createEmail(email).then(() =>
+      this.props.history.push(`/mail`)
+    );
+  };
+
+  onRemoveEmail = (emailId) => {
+    EmailService.removeEmail(emailId)
+      .then(this.loadEmails)
+      .then(this.props.history.push(`/mail`));
+  };
+
   render() {
+    console.log("render");
     const { emails, userFullName } = this.state;
     if (!emails) return <div>loading</div>;
 
@@ -34,8 +45,15 @@ export class MailApp extends React.Component {
         {/*{JSON.stringify(this.state.emails, null, 2)}*/}
         <EmailFilter onSetFilter={this.onSetFilter} />
         <div className="main-container">
-          <EmailFolderList  onSetFilter={this.onSetFilter} />
-          <EmailList  emails={emails} userFullName={userFullName} />
+          <EmailFolderList
+            SendNewEmail={this.SendNewEmail}
+            onSetFilter={this.onSetFilter}
+          />
+          <EmailList
+            onRemoveEmail={this.onRemoveEmail}
+            emails={emails}
+            userFullName={userFullName}
+          />
         </div>
       </section>
     );

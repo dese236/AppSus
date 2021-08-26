@@ -6,6 +6,7 @@ import { KeepApp } from './js/apps/keep/pages/KeepApp.jsx';
 import { MailApp } from './js/apps/mail/page/EmailApp.jsx';
 import { AppHeader } from './js/cmps/AppHeader.jsx';
 import { BookApp } from './js/apps/Book/page/BookApp.jsx';
+//import { NewMail } from './js/apps/mail/page/NewMail.jsx';
 export function App() {
   return (
     <Router>

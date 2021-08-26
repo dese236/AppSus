@@ -4,6 +4,10 @@
 @import './cmps/NavModal.css';
 @import './cmps/EmailPreview.css';
 @import './cmps/EmailDetails.css';
+<<<<<<< HEAD
 @import './apps/keep/note-preview.css';
 @import './apps/keep/add-note.css';
 @import './apps/keep/note-list.css';
+=======
+@import './cmps/NewMail.css';
+>>>>>>> 559fdee06a7913646b063b97fa8ca160446b8076

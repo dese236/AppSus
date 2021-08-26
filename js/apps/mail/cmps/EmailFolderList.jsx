@@ -1,3 +1,5 @@
+import { NewMail } from "./NewMail.jsx";
+
 export class EmailFolderList extends React.Component {
   state = {
     filterBy: {
@@ -6,6 +8,7 @@ export class EmailFolderList extends React.Component {
       isStared: false,
       lables: "",
     },
+    newMail: false,
   };
 
   handleChange = (ev) => {
@@ -18,7 +21,7 @@ export class EmailFolderList extends React.Component {
     this.setState(
       {
         filterBy: {
-          status: "inbox",
+          status: "",
           isRead: "",
           isStared: false,
           lables: "",
@@ -31,12 +34,18 @@ export class EmailFolderList extends React.Component {
     );
   };
 
+  onNewEmail = () => {
+    this.setState({ newMail: !this.state.newMail });
+  };
+
   render() {
     const { status, isRead, isStared, lables } = this.state.filterBy;
 
     return (
       <div className="aside-nav">
         <ul className="aside-nav-list-filter">
+          <button onClick={this.onNewEmail}>+</button>
+          {this.state.newMail && <NewMail SendNewEmail={this.props.SendNewEmail} />}
           <li>
             <input
               name="status"
@@ -54,27 +63,23 @@ export class EmailFolderList extends React.Component {
             ></input>
           </li>
           <li>
-            <div
-              onClick={() => {
-                this.onFilter("{status:sent}");
-              }}
-            >
-              Sent Mail
-            </div>
+            <input
+              name="status"
+              type="button"
+              value="sent"
+              onClick={this.handleChange}
+            ></input>
           </li>
           <li>
-            <div>Drafts</div>
+            <input
+              name="status"
+              type="button"
+              value="trash"
+              onClick={this.handleChange}
+            ></input>
           </li>
         </ul>
       </div>
-    );
+    )
   }
-}
-
-//const criteria = {
-//  status: 'inbox/sent/trash/draft',
-//  txt: 'puki', // no need to support complex text search
-//  isRead: true, // (optional property, if missing: show all)
-//  isStared: true, // (optional property, if missing: show all)
-//  lables: ['important', 'romantic'] // has any of the labels
-// }
+};
