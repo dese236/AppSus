@@ -1,0 +1,16 @@
+
+
+/* .reviews-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+} */
+
+.reviews-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    max-height: 140vh; 
+    max-width: 100vw;
+}

@@ -1,0 +1,30 @@
+
+
+.add-note{
+    display :flex ;
+}
+.add-note > * {
+    margin: 10px;
+}
+
+.add-note div input{
+    height: 40px;
+    width: 40px;
+}
+
+/* add-note */
+
+.note-form > *{
+    margin: 5px;
+}
+
+.add-note button{
+    height: 60px;
+    width: 60px;
+    background-image: url('/css/img/edit.png');
+}
+
+.add-note button >  img{
+    width: 60px;
+    height: 60px;
+}

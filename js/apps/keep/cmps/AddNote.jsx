@@ -4,7 +4,8 @@ export class AddNote extends React.Component {
     state = {
         note: {
             txt: '',
-            src: '',
+            src:'' ,
+            noteTime: '',
             id: utilServices.makeId(),
             noteType: 'txt'
         },
@@ -12,37 +13,24 @@ export class AddNote extends React.Component {
         selectedFile: null
     }
 
-    // componentDidMount() {
-    //     .then(newId=> this.setState({ note: { ...this.state.note, [id]: newId } }))
-    //     debugger
-    // const {id} = this.state.note
-    // this.setNoteId()
-    // }
-
-    // setNoteId = ()=>{
-    // }
-
     onChange = (ev) => {
-        // const field = ev.target.name
         const value = ev.target.value
-        this.setState({ note: { ...this.state.note, [this.state.note.noteType]: value } })
-        // this.props.onUpdateNote(this.state.note)
+        const field = ev.target.name
+        // this.setState({ note: { ...this.state.note, [this.state.note.noteType]: value } })
+        this.setState({ note: { ...this.state.note, [field]: value } })
+    }
+    
+    onChangeUrl = (ev) => {
+        const value = ev.target.value
+        const field = ev.target.name
+        this.setState({ note: { ...this.state.note, [field]: value } })
     }
 
     onSubmit = (ev) => {
-        this.onChange(ev)
-        console.log('im here');
         ev.preventDefault()
-        // const value = ev.target.value
-        // this.onUpdateNote(this.state.noteId)
-        // this.onAddNote()
-        // eventBusService.emit('review-submit' , false)
-        // const { noteType } = this.state.note
-        // this.setNoteInnerTxt(noteType, value)
-        // this.setState({ txt })
-        const { note } = this.state
+        this.setState({note : {...this.state.note , noteTime : JSON.stringify(new Date().toISOString().split("T")[0])}})
+        const {note} = this.state
         this.props.onAddNote(note)
-        // console.log(nodeId)
         this.setState({
             note: {
                 txt: '',
@@ -51,13 +39,8 @@ export class AddNote extends React.Component {
                 noteType: 'txt'
             }
         })
+        console.log('note is :' ,note);
     }
-
-    // setNoteInnerTxt = (noteType) => {
-    //     if (noteType === 'txt') this.state.note.txt = value
-    //     else this.state.note.src = value
-
-    // }
 
     setNoteType = (ev) => {
         this.state.note.noteType = 'src';
@@ -66,10 +49,8 @@ export class AddNote extends React.Component {
 
     }
 
-
-
     render() {
-        const { txt, id, noteType } = this.state.note
+        const { txt, id, src ,noteType } = this.state.note
         console.log(id)
         return (
             <section className="add-note">
@@ -82,11 +63,42 @@ export class AddNote extends React.Component {
                         value={txt}
                         onChange={this.onChange}
                     />
+                    <label htmlFor='src'>Image</label>
+                    <input
+                        name='src'
+                        type='text'
+                        placeholder='enter url'
+                        value={src}
+                        onChange={this.onChangeUrl}
+                    />
                     <button onClick={this.onSubmit}>Add</button>
                 </form>
-                <input type="button" name="img"  onClick={this.setNoteType}/>
+
+                {/* <button onClick={this}><img src="./imgs/imgicon.png" alt="" /></button>
+                <button onClick={this}><img src="./imgs/video.png" alt="" /></button> */}
 
             </section>
         )
     }
 }
+
+
+
+
+{/* <button className="txt">
+<div>
+
+<img src="./css/img/edit.png" alt="edit"/>
+</div>
+
+</button>
+<button className="image">
+<div>
+    <img src="./css/img/imgicon.png" alt="edit"/>
+</div>
+</button>
+<button className="video">
+<div>
+    <img src="./css/img/video.png" alt="edit"/>
+</div>
+</button> */}
