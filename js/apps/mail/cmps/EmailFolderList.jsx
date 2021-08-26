@@ -11,15 +11,6 @@ export class EmailFolderList extends React.Component {
     newMail: false,
   };
 
-handleChange = (ev) => {
-    const field = ev.target.name;
-    const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value;
-    this.setState({ filterBy: { ...this.state.filterBy, [field]: value } }, () => {
-      this.props.onSetFilter(this.state.filterBy)
-    });
-  };
-
-
   handleChange = (ev) => {
     const field = ev.target.name;
     const value =

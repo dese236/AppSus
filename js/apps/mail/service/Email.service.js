@@ -77,7 +77,6 @@ function getLoggedUser() {
 
 
 function createEmail(email) {
-
     email.id = utilService.makeId()
     email.isRead = false
     email.sentAt = new Date()
