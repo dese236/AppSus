@@ -59,7 +59,7 @@ export class KeepApp extends React.Component {
     return (<div>
       <SearchBar onSetKey={this.onSetKey} />
       <AddNote onAddNote={this.onAddNote} onUpdateNote={this.onUpdateNote} />
-      <NoteList notes={notes} />
+      <NoteList notes={notes} onLoadNotes={this.onLoadNotes}/>
     </div>)
 
   }

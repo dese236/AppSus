@@ -1,19 +1,72 @@
-
-.note-preview{
+*{
+    box-sizing: border-box;
+}
+.img-note-card , .video-note-card {
     width: 300px;
     height: 300px;
-    background-color: rgb(95, 206, 160);
+    background-color:rgb(237, 248, 245);;
+    box-shadow: 0 0 10px rgb(63, 61, 61);
     margin: 20px;
     border-radius:30px;
     text-align: center;
     align-self: center;
+    display: block;
 }
 
-.note-preview img {
+/* .note-preview img {
     object-fit: cover;
     height:80%;
     width:300px;
     border-radius:30px;
     border-bottom-right-radius : 0 ;
     border-bottom-left-radius : 0 ;
+} */
+
+.img-note-card img   {
+    object-fit: cover;
+    height:80%;
+    width:300px;
+    border-radius:30px;
+    border-bottom-right-radius : 0 ;
+    border-bottom-left-radius : 0 ;
+    
+}
+
+
+.txt-note-card {
+    font-size : 1.3rem ;
+    margin: 20px;
+    padding: 30px;
+    text-align: center;
+    width: 300px;
+    background-color: rgb(237, 248, 245);
+    box-shadow: 0 0 10px rgb(63, 61, 61);
+    border-radius: 20px;
+}
+
+.note-opt{
+    /* position: relative; */
+    /* top: 260px; */
+    display: flex;
+    justify-content: space-around;
+    display: none;
+}
+
+/* .note-opt:hover{
+    position: relative;
+    top: 260px;
+    display: flex;
+    justify-content: space-around;
+    z-index: -1;
+} */
+
+
+.card:hover .note-opt{
+    /* position :absolute; */
+    display: block;
+
+}
+
+.txt-note-card:hover note-optP{
+    top: 30px;
 }
