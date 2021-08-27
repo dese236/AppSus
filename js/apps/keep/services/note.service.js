@@ -8,6 +8,11 @@ export const noteServices = {
     filterNotes,
     duplicateNote,
     pinNote,
+
+
+    getDeletedNotes,
+
+    getPinedNotes,
 }
 
 const KEY = 'keepDB'
@@ -17,18 +22,24 @@ var gNotes = [
         id: 'Tx845I',
         noteType: 'txt',
         noteDate: '2021-8-24',
+        isDeleted: false,
+        isPined: false,
     },
     {
         txt: 'hello world',
         id: 'lb6K8d',
         noteType: 'txt',
         noteDate: '2021-8-24',
+        isDeleted: false,
+        isPined: false,
     },
     {
         txt: 'hello world',
         id: 'a7nJKE',
         noteType: 'txt',
         noteDate: '2021-8-24',
+        isDeleted: false,
+        isPined: false,
     },
     {
         txt: 'lets see if image note can have txt as well',
@@ -36,24 +47,32 @@ var gNotes = [
         id: 'b6gJDk3',
         noteType: 'img',
         noteDate: '2021-8-24',
+        isDeleted: false,
+        isPined: false,
     },
     {
         txt: 'hello world',
         id: 'Co7g56G',
         noteType: 'txt',
         noteDate: '2021-8-23',
+        isDeleted: false,
+        isPined: false,
     },
     {
         txt: 'Niv & Dese programming AppSus',
         id: 'Cfb43m',
         noteType: 'txt',
         noteDate: '2021-8-17',
+        isDeleted: false,
+        isPined: false,
     },
     {
         img: 'https://sites.google.com/site/mychetsite/_/rsrc/1468863654615/home/mychetsite/summer2.jpg',
         id: 'bfGDN6',
         noteType: 'img',
         noteDate: '2021-8-17',
+        isDeleted: false,
+        isPined: false,
     },
     {
         title: 'this is generic title',
@@ -61,12 +80,16 @@ var gNotes = [
         id: 'm8IHVTY',
         noteType: 'img',
         noteDate: '2021-8-17',
+        isDeleted: false,
+        isPined: false,
     },
     {
         txt: 'hello world',
         id: 'he2Z9K',
         noteType: 'txt',
         noteDate: '2021-8-17',
+        isDeleted: false,
+        isPined: false,
     },
     {
         title: 'this is generic title',
@@ -74,6 +97,8 @@ var gNotes = [
         id: '8Huymk5',
         noteType: 'video',
         noteDate: '2021-7-29',
+        isDeleted: false,
+        isPined: false,
     },
     {
         title: 'this is generic title',
@@ -81,30 +106,37 @@ var gNotes = [
         id: 'GgjK45',
         noteType: 'img',
         noteDate: '2021-7-29',
+        isDeleted: false,
+        isPined: false,
     },
     {
         title: 'this is Todo generic title',
-        img:'',
+        img: '',
         id: 'GgsK45',
-        noteType: 'todo',
+        noteType: 'todos',
         noteDate: '2021-7-29',
-        todos: [{tesk:'go home' ,id:'gksm5Y' , isDone: false} , {tesk:'master css', id:'DngF67', isDone :false},{ tesk:'to do todo list',id:'Wgj5G8' , isDone:false}]
+        todos: [{ tesk: 'go home', id: 'gksm5Y', isDone: false, isEditted: false }, { tesk: 'master css', id: 'DngF67', isDone: false, isEditted: false }, { tesk: 'to do todo list', id: 'Wgj5G8', isDone: false, isEditted: false }],
+        isDeleted: false,
+        isPined: false,
     }
 ]
 
-
-function getNotes() {
+var gDeleted = []
+var gPined = []
+function getNotes(page) {
+    if(page==='trash')return getDeletedNotes()
+    // if(page===)
     gNotes = storageService.loadFromStorage(KEY) ? storageService.loadFromStorage(KEY) : gNotes
     return Promise.resolve(gNotes);
 }
 
 function searchNotes(key) {
     console.log('this is the key ', key);
-    const notes = gNotes.filter(note => 
-
-        (note.title&&note.title.toLowerCase().includes(key.toLowerCase())) || (note.txt&&note.txt.toLowerCase().includes(key.toLowerCase()))
+    const notes = gNotes.filter(note =>
+        
+        (note.title && note.title.toLowerCase().includes(key.toLowerCase())) || (note.txt && note.txt.toLowerCase().includes(key.toLowerCase()))
     )
-    console.log(notes , 'this are the notes');
+    console.log(notes, 'this are the notes');
     return Promise.resolve(notes);
 }
 
@@ -127,20 +159,49 @@ function duplicateNote(note) {
     return Promise.resolve()
 }
 
-function pinNote(note) {
-    duplicateNote(note)
-    .then(()=>{
-        deleteNote(note.id)
-    })
-    return Promise.resolve()
+// function pinNote(note) {
+//     duplicateNote(note)
+//     .then(() => {
+//         deleteNote(note.id)
+//     })
+//     return Promise.resolve()
+    
+// }
 
-}
+// function deleteNote(noteId) {
+    //     var noteIdx = gNotes.findIndex(function (note) {
+        //         return noteId === note.id
+        //     })
+        //     gNotes.splice(noteIdx, 1)
+        //     storageService.saveToStorage(KEY, gNotes);
+        //     return Promise.resolve()
+        // }
+        
+        function pinNote(note) {
+            var noteIdx = gNotes.findIndex(function (nt) {
+                return nt.id === note.id
+            })
+            gPined.unshift(gNotes.slice(noteIdx, 1)[0])
+            storageService.saveToStorage(KEY, gNotes);
+            return Promise.resolve()
+        }
+        
+        function deleteNote(noteId) {
+            var noteIdx = gNotes.findIndex(function (note) {
+                return noteId === note.id
+            })
+            // gDeleted.unshift(gNotes.slice(noteIdx, 1)[0])
+            gNotes[noteIdx].isDeleted = true ;
+            storageService.saveToStorage(KEY, gNotes);
+            return Promise.resolve()
+        }
 
-function deleteNote(noteId) {
-    var noteIdx = gNotes.findIndex(function (note) {
-        return noteId === note.id
-    })
-    gNotes.splice(noteIdx, 1)
-    storageService.saveToStorage(KEY, gNotes);
-    return Promise.resolve()
-}
+
+        function getDeletedNotes(notes) {
+            const deletedNotes = notes.filter((note => note.isDeleted))
+            return Promise.resolve(deletedNotes);
+        }
+        function getPinedNotes() {
+            const pinedNotes =getNotes().filter((note => note.isPined))
+            return Promise.resolve(pinedNotes);
+        }

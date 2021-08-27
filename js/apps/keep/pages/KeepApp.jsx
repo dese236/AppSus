@@ -1,12 +1,13 @@
 import { SearchBar } from '../cmps/SearchBar.jsx';
 import { noteServices } from '../services/note.service.js'
-import { AddNote } from '../cmps/AddNote.jsx'
+// import { AddNote } from '../cmps/AddNote.jsx'
 import { NoteList } from '../cmps/NoteList.jsx';
 import { NoteFilter } from '../cmps/NoteFilter.jsx';
 import { Navigator } from '../cmps/Navigator.jsx';
 import {Arcive} from './Arcive.jsx';
 import {Edit} from '../cmps/Edit.jsx';
 import {Trash} from './Trash.jsx';
+import {TrashList} from '../cmps/TrashList.jsx';
 
 const { Route } = ReactRouterDOM;
 
@@ -16,11 +17,13 @@ export class KeepApp extends React.Component {
   state = {
     searchKey: '',
     notes: [] ,
-    isNoteContentOpen : false
+    isNoteContentOpen : false ,
+    page : 'notes'
+
   }
 
   componentDidMount() {
-    this.onLoadNotes()
+    this.onLoadNotes('notes')
 
   }
 
@@ -78,8 +81,15 @@ export class KeepApp extends React.Component {
     // console.log('isOpen' , isNoteContentOpen);
   }
 
+  setPage= (page) => {
+    this.setState({page })
+    console.log(this.state.page , 'is the page now');
+    this.onLoadNotes()
+
+  }
+
   render() {
-    const { notes , isNoteContentOpen } = this.state
+    const { notes , isNoteContentOpen , page } = this.state
 
     return (<div onClick={this.closeContent}>
       {/* create route for pages */}
@@ -88,10 +98,12 @@ export class KeepApp extends React.Component {
       <Route path="/keep/edit" component={Edit} />
       <Route path="/keep/arcive" component={Arcive} />
       <Route path="/keep/trash" component={Trash} />
-      <Navigator  />
+     <Navigator setPage={this.setPage} />
       <Edit isNoteContentOpen={isNoteContentOpen} openContent={this.openContent} onAddNote={this.onAddNote} onUpdateNote={this.onUpdateNote}/>
       {/* <AddNote onAddNote={this.onAddNote} onUpdateNote={this.onUpdateNote} /> */}
-      <NoteList notes={notes} onLoadNotes={this.onLoadNotes} />
+     { page ==='notes' && <NoteList notes={notes} onLoadNotes={this.onLoadNotes} />}
+     { page ==='trash' && <TrashList notes={notes} onLoadNotes={this.onLoadNotes} />}
+     {/* { page==='arcive' &&<NoteList notes={notes} onLoadNotes={this.onLoadNotes} />} */}
 
     </div>)
 

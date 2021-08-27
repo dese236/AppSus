@@ -18,10 +18,13 @@ export class Edit extends React.Component {
         this.addNewTesk()
     }
 
-    addNewTesk = () =>{
-        let todos = this.state.note 
-        this.setState({todos : [{...todos},{tesk:'' , id:utilServices.makeId(),isDone:false}]})
-        console.log(todos , 'todos are :');
+    addNewTesk = (todo) =>{
+        console.log(todo , 'this is the argument  todo for adding')
+        // let {todos} = this.state.note 
+        // let {todos} = this.state.note
+        // console.log(todos , 'todos are before:');
+        this.setState({todos :this.state.note.todos.push(todo)})
+        console.log(this.state , 'todos are :');
     }
 
     setClick = (ev) => {
@@ -40,28 +43,44 @@ export class Edit extends React.Component {
 
     onChange = (ev, field) => {
         const value = ev.target.value
-        // const field = ev.target.name
+        if(field === 'todos') return this.upDateTodos(value , field)
         this.setState({ note: { ...this.state.note, [field]: value } })
-        console.log(this.state.note);
+    
 
         // if(field==='todos' && value) this.removeTesk()
     }
 
+    upDateTodos = (todoStr , field) => {
 
-
-    onChangeUrl = (ev) => {
-        this.setNoteType()
-        const value = ev.target.value
-        const field = ev.target.name
-        this.setState({ note: { ...this.state.note, [field]: value } })
+        console.log('todolis ', todoStr , 'field' , field);
+        this.createTodos(todoStr).then((todos)=> {
+            this.setState({ note: { ...this.state.note, [field]: todos } })
+            
+        })
+        
     }
+
+    createTodos = (todoStr) => {
+        const todos = todoStr.split(',').map((todo)=>{
+            return {tesk : todo , id:  utilServices.makeId(), isDone  :false , isEditted : false}
+        })
+
+        console.log(todos , 'as array')
+        return Promise.resolve(todos)
+    }
+    // onChangeUrl = (ev) => {
+    //     this.setNoteType()
+    //     const value = ev.target.value
+    //     const field = ev.target.name
+    //     this.setState({ note: { ...this.state.note, [field]: value } })
+    // }
 
     onSubmit = (ev) => {
         ev.preventDefault()
         ev.target.value = ''
         this.setState({ note: { ...this.state.note, noteTime: JSON.stringify(new Date().toISOString().split("T")[0]) } })
         const { note } = this.state
-        console.log(note , 'just before getteing ADDED');
+
         this.props.onAddNote(note)
         this.setState({
             note: {
@@ -72,10 +91,12 @@ export class Edit extends React.Component {
                 noteTime: '',
                 id: utilServices.makeId(),
                 noteType: 'txt',
-                color: ''
+                color: '',
+                isDeleted: false ,
+                isPined: false , 
             }
         })
-        console.log('note is :', note);
+        console.log('note is the note thata wass add  :', note);
     }
 
     render() {
@@ -89,7 +110,10 @@ export class Edit extends React.Component {
                         <div className="note-edit" >
                             {noteType === 'txt' && <input placeholder="Whats on your mind?" className="note-content" name="content" type="textarea" onClick={this.setClick} onChange={(e) => this.onChange(e, 'txt')} />}
                             {noteType === 'img' && <input placeholder="Enter image url" className="note-content" name="content" type="textarea" onClick={this.setClick} onChange={(e) => this.onChange(e, 'img')} />}
-                            {noteType === 'todos' && <TodoList todos={todos} setClick={this.setClick} onChange={this.onChange} />}
+                            {noteType === 'todos' && <input placeholder="Enter Todo list, separated by commas" className="note-content" name="content" type="textarea" onClick={this.setClick} onChange={(e) => this.onChange(e, 'todos')} />}
+                            
+                            
+                            {/* {noteType === 'todos' && <TodoList todos={todos} setClick={this.setClick}  addNewTesk={this.addNewTesk}/>} */}
                             <div className="note-edit-icons" onClick={this.setClick}>
                                 <img onClick={this.onSubmit} src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE4cHgiIHdpZHRoPSIxOHB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzAwMDAwMCI+CiA8cGF0aCBkPSJtMzggMjZoLTEydjEyaC00di0xMmgtMTJ2LTRoMTJ2LTEyaDR2MTJoMTJ2NHoiLz4KIDxwYXRoIGQ9Im0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K" />
                                 <img onClick={(e) => this.setType(e, 'txt')} src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTguNjQgNC43NUwyMCA2LjExbC03Ljc5IDcuNzktMS4zNi0xLjM2IDcuNzktNy43OW0wLTJjLS41MSAwLTEuMDIuMi0xLjQxLjU5bC03Ljc5IDcuNzljLS43OC43OC0uNzggMi4wNSAwIDIuODNsMS4zNiAxLjM2Yy4zOS4zOS45LjU5IDEuNDEuNTkuNTEgMCAxLjAyLS4yIDEuNDEtLjU5bDcuNzktNy43OWMuNzgtLjc4Ljc4LTIuMDUgMC0yLjgzbC0xLjM1LTEuMzVjLS4zOS0uNC0uOS0uNi0xLjQyLS42ek03IDE0LjI1Yy0xLjY2IDAtMyAxLjM0LTMgMyAwIDEuMzEtMS4xNiAyLTIgMiAuOTIgMS4yMiAyLjQ5IDIgNCAyIDIuMjEgMCA0LTEuNzkgNC00IDAtMS42Ni0xLjM0LTMtMy0zeiIvPgo8L3N2Zz4K" />

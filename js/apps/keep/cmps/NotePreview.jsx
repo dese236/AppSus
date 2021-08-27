@@ -10,7 +10,7 @@ export function NotePreview({note , onLoadNotes}) {
             {note.noteType === 'txt' && <TxtNote note={note} onLoadNotes={onLoadNotes} />}
             {note.noteType === 'img' && <ImgNote note={note} onLoadNotes={onLoadNotes}/>}
             {note.noteType === 'video' && <VideoNote note={note} onLoadNotes={onLoadNotes}/>}  
-            {note.noteType === 'todo' && <TodoNote note={note} onLoadNotes={onLoadNotes}/>}  
+            {note.noteType === 'todos' && <TodoNote note={note} onLoadNotes={onLoadNotes}/>}  
          {/* </div> */}
          </React.Fragment>
 
