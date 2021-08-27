@@ -1,18 +1,14 @@
-.emails-list {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-}
-
 .email-Preview {
     padding: 10px;
     cursor: pointer;
-    gap: 50px;
+    align-items: flex-start;
     display: flex;
+    flex-direction: column;
     background-color: #d6cfcf;
     color: #202124;
     border: 1px solid gray;
-    align-items: center;
+
+    position: relative;
 }
 
 .read {
@@ -33,15 +29,20 @@
 
 .main-container {
     display: flex;
+    width: 100vw;
+    max-width: 100%;
 }
 
-.star-icon {
-    font-size: 30px;
-    flex: 1;
+.fa-star {
+    content: "\f005";
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    font-size: 25px;
 }
 
 .yellow {
-    color: yellow;
+    color: rgb(255, 255, 92);
 }
 
 .grey {
@@ -58,7 +59,10 @@
 }
 
 .email-Preview .time {
-    flex: 1
+    flex: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .email-Preview .message {
@@ -67,32 +71,37 @@
 
 .email-Preview .subject {
     font-weight: 500;
+    display: block;
 }
 
-.search-mail-input >* {
-    padding: 7px;
-    font-size: 12px;
-    width: 300px;
-    border-width: 0px;
-    border-color: #CCCCCC;
-    background-color: #fafafa;
-    color: #000000;
-    border-style: solid;
-    border-radius: 6px;
-    box-shadow: 0px 1px 2px rgb(204 204 204 / 70%);
-    text-shadow: -1px 0px 0px rgb(226 226 226 / 75%);
-}
 
-.filter-is-read {
-    height: 29px;
-    width: 65px;
-    border: none;
-    margin-left: 6px;
-}
 
-.search-mail-input {
-    border: none;
-    position: absolute;
-    top: 6%;
-    left: 40%;
+@media (min-width: 740px) {
+    .email-filter-nav {
+        display: unset;
+    }
+    .email-Preview {
+        position: unset;
+        flex-direction: row;
+        gap: 50px;
+        align-items: center;
+    }
+    .fa-star {
+        position: unset;
+    }
+    .email-Preview .time {
+        flex: 1;
+        position: unset;
+        top: unset;
+        right: unset;
+    }
+
+    .email-Preview .subject {
+        display: unset;
+     
+    }
+    .main-container{
+        padding: 27px 34px;
+    }
+  
 }

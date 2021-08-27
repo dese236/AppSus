@@ -16,4 +16,7 @@
 @import './apps/keep/todo.css';
 @import './apps/keep/note-filter.css';
 @import './cmps/EmailList.css';
+@import './cmps/EmailApp.css';
+@import './cmps/BaseEmail.css';
+@import './cmps/EmailFilter.css'
 

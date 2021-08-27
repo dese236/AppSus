@@ -33,9 +33,8 @@ export default class EmailPreview extends React.Component {
             onClick={(ev) => {
               ontoggleStar(ev,email.id);
             }}
-            className={`star-icon ${email.isStared ? "yellow" : "grey"}`}
+            className={`fas fa-star ${email.isStared ? "yellow" : "grey"}`}
           >
-            &#9733;
           </div>
           <div className="sentFrom">{email.userName}</div>
           <div className="email-body">

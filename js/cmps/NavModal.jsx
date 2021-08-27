@@ -19,11 +19,11 @@ export function NavModal({ toggleNavModal }) {
         <img src="./css/img/book.png" />
       </NavLink>
 
-      <NavLink onClick={toggleNavModal} exact to="/mail">
+      <NavLink onClick={toggleNavModal} to="/mail">
         <img src="./css/img/envelope.png" />
       </NavLink>
 
-      <NavLink onClick={toggleNavModal} exact to="/keep">
+      <NavLink onClick={toggleNavModal} to="/keep">
         <img src="./css/img/pin.png" />
       </NavLink>
     </div>

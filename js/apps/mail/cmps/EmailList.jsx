@@ -6,7 +6,8 @@ export function EmailList({
   onRemoveEmail,
   onToggleIsRead,
   onReadEmail,
-  onSortEmails
+  onSortEmails,
+ 
 }) {
   return (
     <section className="emails-list">

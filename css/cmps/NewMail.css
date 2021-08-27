@@ -6,7 +6,7 @@
     transform: translate(-50%, -50%);
     background-color: #c1c1c1;
     height: 416px;
-    width: 512px;
+    width: 98vw;
     display: flex;
     flex-direction: column;
     border: 1px solid gray;
@@ -42,10 +42,16 @@
     cursor: pointer
 }
 
-
-button:hover {
+.newEmail button:hover {
     background-color: #579787;
 }
+
 textarea {
     border: none;
+}
+
+@media (min-width: 740px) {
+    .newEmail {
+        width: 512px;
+    }
 }

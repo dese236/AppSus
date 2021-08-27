@@ -10,28 +10,40 @@ flex:1
 }*/
 
 .emails-list-heder {
-    font-size: 17px;
-    display: flex;
-    background: #5faba473;
-    width: 100%;
-    gap: 50px;
-    padding: 10px;
-    text-align: center;
+    display: none;
 }
 
-.emails-list-heder span.message
-{
+.emails-list-heder span.message {
     flex: 3;
 }
-.emails-list-heder  span.name
-{
+
+.emails-list-heder span.name {
     flex: 1;
 }
-.emails-list-heder  .favorit
-{
+
+.emails-list-heder .favorit {
     flex: 0.5;
 }
-.emails-list-heder  .date
-{
+
+.emails-list-heder .date {
     flex: 1;
+}
+
+.emails-list {
+    display: flex;
+    flex: 10;
+    flex-direction: column;
+}
+
+@media (min-width: 740px) {
+    .emails-list-heder {
+        display: block;
+        font-size: 17px;
+        display: flex;
+        background: #5faba473;
+        width: 100%;
+        gap: 50px;
+        padding: 10px;
+        text-align: center;
+    }
 }

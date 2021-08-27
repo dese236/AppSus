@@ -1,0 +1,21 @@
+/*
+.main-layout {
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+
+@media (min-width: 740px) {
+    .main-layout {
+        width: 100%;
+    }  
+}
+*/
+.email-filter-nav{
+    display: flex;
+}
+@media (min-width: 740px) {
+    .email-filter-nav{
+        display: unset;
+    }
+}

@@ -10,8 +10,10 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    z-index: 15;
 }
 
 .nav-modal img { 
     height: 50px;
 }
+

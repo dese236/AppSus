@@ -1,0 +1,26 @@
+/* SCREENS */
+
+.screen {
+    position: fixed;
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    /* top: 65px;
+    left: 0;
+    height: calc(100vh - 65px);
+    width: 100vw; */
+    inset: 0;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.menu-open .screen.light {
+    background-color: rgb(225 225 225 / 90%);
+}
+
+.screen.dark {
+    background-color: #4f4e4ef3;
+}

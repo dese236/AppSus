@@ -9,11 +9,13 @@ export class MailApp extends React.Component {
   state = {
     emails: [],
     filterBy: null,
-    userFullName: EmailService.getLoggedUser().fullname,
+    userFullName: "",
+    isMenuOpen: true,
   };
 
   componentDidMount() {
     this.loadEmails();
+    this.setState({ userFullName: EmailService.getLoggedUser().fullname });
   }
 
   loadEmails = () => {
@@ -62,22 +64,39 @@ export class MailApp extends React.Component {
       .then(this.props.history.push(`/mail`));
   };
 
+  onToggleMenu = () => {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  };
+
   render() {
     console.log("render");
-    const { emails, userFullName } = this.state;
+    const { emails, userFullName, isMenuOpen } = this.state;
     if (!emails) return <div>loading</div>;
 
     return (
-      <section>
+      <section className={`main-layout ${isMenuOpen ? "menu-open" : ""}`}>
         <Route
-          path="/mail/mail/new"
+          path="/mail/new"
           render={(props) => (
             <NewMail {...props} loadEmails={this.loadEmails} />
           )}
         />
-        <EmailFilter onSetFilter={this.onSetFilter} />
+        <div className="email-filter-nav">
+          <button
+            onClick={this.onToggleMenu}
+            className={`fas fa-angle-double-right ${
+              this.state.isMenuOpen
+                ? "  btn-menu-toggle menu-open"
+                : "btn-menu-toggle"
+            }`}
+          ></button>
+
+          <EmailFilter onSetFilter={this.onSetFilter} />
+        </div>
         <div className="main-container">
           <EmailFolderList
+            onToggleMenu={this.onToggleMenu}
+            isMenuOpen={isMenuOpen}
             SendNewEmail={this.SendNewEmail}
             onSetFilter={this.onSetFilter}
           />

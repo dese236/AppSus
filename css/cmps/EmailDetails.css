@@ -42,3 +42,14 @@ small {
     top: 12px;
     right: 15px;
 }*/
+
+.email-details .subject{
+    font-weight: 500;
+   
+}
+
+@media (min-width: 740px) {
+    .email-details .subject{
+        font-weight: unset;
+    }
+}

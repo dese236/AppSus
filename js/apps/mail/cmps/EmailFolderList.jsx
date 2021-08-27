@@ -55,17 +55,16 @@ export class EmailFolderList extends React.Component {
   };
 
   render() {
-    const { status, isRead, isStared, lables } = this.state.filterBy;
-
     return (
-      <div className="aside-nav">
-        <ul className="aside-nav-list-filter">
-          {/*<button onClick={this.onNewEmail}>+</button>*/}
-          <li>
-            <Link exact to="/mail/mail/new">
-              <img src="../../../../css/img/plus-btn.png" />
-            </Link>
-          </li>
+      <div
+        className={this.props.isMenuOpen ? "aside-nav menu-open" : "aside-nav"}
+      >
+        <li>
+          <Link to="/mail/new">
+            <img src="../../../../css/img/plus-btn.png" />
+          </Link>
+        </li>
+        <ul>
           <li>
             <img src="../../../../css/img/inbox.png" />
 

@@ -17,7 +17,6 @@ export function App() {
       <main>
         <Switch>
           <Route path="/mail/details/:emailId" component={OpenEmail} />
-        
           <Route path="/mail" component={MailApp} />
           <Route path="/keep" component={KeepApp} />
           <Route path="/book" component={BookApp} />
