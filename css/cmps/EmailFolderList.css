@@ -70,6 +70,7 @@ button.btn-menu-toggle {
     background: transparent;
     border: none;
     border-radius: 50%;
+    font-size: 30px;
 }
 
 .fa-angle-double-left {
