@@ -61,12 +61,12 @@ export class EmailFolderList extends React.Component {
       >
         <li>
           <Link to="/mail/new">
-            <img src="../../../../css/img/plus-btn.png" />
+            <img src="/../../../../css/img/plus-btn.png" />
           </Link>
         </li>
         <ul>
           <li>
-            <img src="../../../../css/img/inbox.png" />
+            <img src="/../../../../css/img/inbox.png" />
 
             <input
               name="status"
@@ -76,7 +76,7 @@ export class EmailFolderList extends React.Component {
             />
           </li>
           <li>
-            <img src="../../../../css/img/star.png" />
+            <img src="/../../../../css/img/star.png" />
 
             <input
               name="isStared"
