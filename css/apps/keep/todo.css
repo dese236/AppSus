@@ -1,0 +1,30 @@
+
+
+.todo  {
+    display:flex;
+    margin: 20px;
+    gap: 5px;
+    /* margin:5px; */
+
+}
+
+.todo >* {
+    margin-block: 5px;
+}
+
+/* .todo-tesk{
+    display
+
+} */
+.todo-tesk{
+    display: flex;
+    /* padding: 10px; */
+}
+.todo-tesk >*{
+    gap: 5px;
+}
+
+.todo-tesk img{
+    background-color: #fff;
+}
+

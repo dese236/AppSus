@@ -1,5 +1,7 @@
 
-
+*{
+    box-sizing: border-box;
+}
 .edit{
     display:flex;
     width:80vw;
@@ -18,11 +20,10 @@
 }
 
 input.note-content {
-    height:120px ;
+    height:100px ;
     /* border: 0px; */
     border-top : 1px solid rgba(122, 122, 122, 0.288);
-    border-end-start-radius:10px ;
-    border-end-end-radius: 10px;
+
     /* border: none; */
 }
 input.note-title {
@@ -35,4 +36,34 @@ input.note-title.clicked {
 
     border-end-start-radius:0 ;
     border-end-end-radius: 0;
+}
+
+.note-edit-icons{
+    display: flex;
+    background-color:white;
+    border-end-start-radius:10px ;
+    border-end-end-radius: 10px;
+    padding-block-end: 10px;
+}
+
+.note-edit-icons img , .note-edit-more-icon{
+
+
+    height: 32px;
+    margin: 0 8px;
+    width: 32px;
+}
+
+.note-edit-icons img:hover , .note-edit-more-icon:hover{
+    cursor: pointer;
+}
+
+.note-edit-more-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-edit{
+
 }

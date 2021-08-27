@@ -5,7 +5,7 @@ import { NoteList } from '../cmps/NoteList.jsx';
 import { NoteFilter } from '../cmps/NoteFilter.jsx';
 import { Navigator } from '../cmps/Navigator.jsx';
 import {Arcive} from './Arcive.jsx';
-import {Edit} from './Edit.jsx';
+import {Edit} from '../cmps/Edit.jsx';
 import {Trash} from './Trash.jsx';
 
 const { Route } = ReactRouterDOM;
@@ -75,7 +75,7 @@ export class KeepApp extends React.Component {
   }
   openContent = () => {
     this.setState({isNoteContentOpen : true})
-    console.log('isOpen' , isNoteContentOpen);
+    // console.log('isOpen' , isNoteContentOpen);
   }
 
   render() {
@@ -89,6 +89,7 @@ export class KeepApp extends React.Component {
       <Route path="/keep/arcive" component={Arcive} />
       <Route path="/keep/trash" component={Trash} />
       <Navigator  />
+      <Edit isNoteContentOpen={isNoteContentOpen} openContent={this.openContent} onAddNote={this.onAddNote} onUpdateNote={this.onUpdateNote}/>
       {/* <AddNote onAddNote={this.onAddNote} onUpdateNote={this.onUpdateNote} /> */}
       <NoteList notes={notes} onLoadNotes={this.onLoadNotes} />
 

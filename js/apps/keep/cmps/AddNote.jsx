@@ -26,6 +26,7 @@ export class AddNote extends React.Component {
 
     onSubmit = (ev) => {
         ev.preventDefault()
+    
         this.setState({ note: { ...this.state.note, noteTime: JSON.stringify(new Date().toISOString().split("T")[0]) } })
         const { note } = this.state
         this.props.onAddNote(note)
