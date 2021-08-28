@@ -11,7 +11,6 @@ export class BookFilter extends React.Component {
   };
 
   handleChange = (ev) => {
-    debugger
     const field = ev.target.name;
     const value =
       ev.target.type === "number" ? +ev.target.value : ev.target.value.toUpperCase();

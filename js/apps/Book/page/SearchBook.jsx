@@ -19,8 +19,6 @@ export class SearchBook extends React.Component {
 
   setBookResult = (res) => {
     let searchResult = [];
-
-    //debugger
     searchResult = res.items.map((book) => {
       return { 
         id: book.id,

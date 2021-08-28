@@ -28,7 +28,6 @@ export class MailApp extends React.Component {
   };
 
   onSetFilter = (filterBy) => {
-    debugger;
     this.setState({ filterBy }, this.loadEmails);
   };
 

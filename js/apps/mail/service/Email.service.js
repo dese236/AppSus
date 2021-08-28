@@ -23,7 +23,6 @@ _createEmails();
 
 
 function query(filterBy) {
-    debugger
     gEmails = storageService.loadFromStorage(KEY)
     if (filterBy) {
         let { status, isRead, isStared, lables, txt } = filterBy
@@ -170,7 +169,6 @@ function sortEmails(elSortBy) {
 
 
 function getUnreadCount() {
-    debugger
     gEmails = storageService.loadFromStorage(KEY)
 
     let countUnread = gEmails.filter((mail) => {

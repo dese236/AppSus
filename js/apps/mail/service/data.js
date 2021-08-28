@@ -93,8 +93,8 @@ const defaultEmails = [
     {
         userName: 'Leumi',
         id: utilService.makeId(),
-        subject: 'Miss you',
-        body: utilService.makeLorem(),
+        subject: 'Leumi max',
+        body: 'We are removing Deep Discount Servers LLC, Iron Mountain Information Management, LLC, iuppiter B.V., Sureline Systems, Inc. and Sureline Systems India Pvt. Ltd.',
         isRead: true,
         sentAt: 1551133930594,
         to: 'user@appsus.com',
@@ -105,10 +105,10 @@ const defaultEmails = [
 
     ,
     {
-        userName: 'inbox4',
+        userName: 'Google Cloud',
         id: utilService.makeId(),
-        subject: 'Miss you',
-        body: utilService.makeLorem(),
+        subject: 'Your Google Cloud free trial',
+        body: '.Before diving into your free trial, take a moment to explore over 20 always-free products in our Always Free tier. There’s ncharge or credit cost to use these products up to their specified usage limi',
         isRead: true,
         sentAt: 1551133930594,
         to: 'user@appsus.com',

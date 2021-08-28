@@ -39,7 +39,7 @@ function createBook(book) {
 
 
 function query(filterBy) {
-    debugger
+    
     if (filterBy) {
         let { name, minPrice, maxPrice } = filterBy
         maxPrice = maxPrice ? maxPrice : Infinity
@@ -59,7 +59,6 @@ function getBookById(id) {
 
 
 function addReview(bookToEdit, review) {
-    // debugger
     var bookIdx = gBooks.findIndex(function (book) {
         return book.id === bookToEdit.id;
     })
@@ -90,7 +89,6 @@ function searchBook(keySerch) {
         console.log('No need to fetch, retrieving from Cache');
         return Promise.resolve(bookCache)
     }
-    // debugger
     const resPrm = axios.get(`https://www.googleapis.com/books/v1/volumes?printType=books&q=${keySerch}`)
         .then((res) => {
             console.log('Axios RES:', res);

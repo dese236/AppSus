@@ -2,7 +2,6 @@ import { eventBusService } from "../../../services/event-bus-service.js";
 
 export class EmailFilter extends React.Component {
   handleTxtChange = (ev) => {
-    debugger
     this.removeEventBus = eventBusService.emit("input-txt", ev);
   };
 
