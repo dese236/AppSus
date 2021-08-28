@@ -84,7 +84,7 @@ function getLoggedUser() {
 function createEmail(email) {
     email.id = utilService.makeId()
     email.isRead = false
-    email.sentAt = Math.floor(Date.now() / 1000)
+    email.sentAt = new Date()
     email.to = 'momo@momo.com'
     email.isStared = false
     email.status = 'sent'
@@ -99,6 +99,7 @@ function createEmail(email) {
 function removeEmail(emailId) {
 
     const emailIdx = gEmails.findIndex(email => email.id === emailId)
+
     gEmails[emailIdx].status = 'trash';
     _saveEmailsToStorage()
     return Promise.resolve();

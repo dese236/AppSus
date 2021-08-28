@@ -1,3 +1,4 @@
+import { eventBusService } from "../../../services/event-bus-service.js";
 import { EmailService } from "../service/Email.service.js";
 
 export class NewMail extends React.Component {
@@ -24,6 +25,12 @@ export class NewMail extends React.Component {
     };
     EmailService.createEmail(newMail)
       .then(() => this.props.loadEmails())
+      .then(() => {
+        eventBusService.emit("user-msg", {
+          txt: "your message was sent successfuly!",
+          type: "sent",
+        });
+      })
       .then(() => {
         this.props.history.push(`/mail`);
       });

@@ -18,7 +18,7 @@ export class EmailDetails extends React.Component {
           <img src="/../../../../css/img/maximize.png" />
         </Link>
 
-        {email.status !== "trash" && (
+        { (
           <img
             src="/../../../../css/img/delete.png"
             onClick={() => {

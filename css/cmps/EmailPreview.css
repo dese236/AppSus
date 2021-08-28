@@ -7,8 +7,8 @@
     background-color: #d6cfcf;
     color: #202124;
     border: 1px solid gray;
-
     position: relative;
+    height: 80px;
 }
 
 .read {
@@ -18,7 +18,7 @@
 .email-Preview:hover {
     position: relative;
     z-index: 2;
-    background: rgba(242, 245, 245, 0.8);
+    background: rgb(229 234 234);
     color: #202124;
     box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
@@ -32,7 +32,6 @@
     width: 100vw;
     max-width: 100%;
     padding: 6px;
-    
 }
 
 .fa-star {
@@ -76,8 +75,6 @@
     display: block;
 }
 
-
-
 @media (min-width: 740px) {
     .email-filter-nav {
         display: unset;
@@ -104,14 +101,10 @@
         top: unset;
         right: unset;
     }
-
     .email-Preview .subject {
         display: unset;
-     
     }
-    .main-container{
-        padding: 27px 34px;
+    .main-container {
+        padding: 0;
     }
-
-  
 }

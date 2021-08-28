@@ -3,6 +3,7 @@ import { EmailService } from "../service/Email.service.js";
 import { EmailFilter } from "../cmps/EmailFilter.jsx";
 import { EmailFolderList } from "../cmps/EmailFolderList.jsx";
 import { NewMail } from "../cmps/NewMail.jsx";
+import { eventBusService } from "../../../services/event-bus-service.js";
 const { Link, Route } = ReactRouterDOM;
 
 export class MailApp extends React.Component {
@@ -19,15 +20,34 @@ export class MailApp extends React.Component {
   }
 
   loadEmails = () => {
-    EmailService.query(this.state.filterBy).then((emails) => {
-      this.setState({ emails });
-    });
+    EmailService.query(this.state.filterBy)
+      .then((emails) => {
+        this.setState({ emails });
+      })
+      .then(() => {
+        let result = this.getUnreadCount();
+        if (
+          this.state.filterBy === null ||
+          this.state.filterBy.isStared !== "Stared"
+        )
+          eventBusService.emit("unread-count", result);
+      });
   };
+  getUnreadCount = () => {
+    let countUnread = this.state.emails.filter((mail) => {
+      if (!mail.isRead && mail.status === "inbox") {
+        return mail;
+      }
+    });
+    return countUnread;
+  };
+
   onSetFilter = (filterBy) => {
+    debugger
     this.setState({ filterBy }, this.loadEmails);
   };
 
-  SendNewEmail = (email) => {
+  sendNewEmail = (email) => {
     EmailService.createEmail(email)
       .then(this.loadEmails)
       .then(() => this.props.history.push(`/mail`));
@@ -36,6 +56,12 @@ export class MailApp extends React.Component {
   onRemoveEmail = (emailId) => {
     EmailService.removeEmail(emailId)
       .then(this.loadEmails)
+      .then(() => {
+        eventBusService.emit("user-msg", {
+          txt: "your message moved to trash",
+          type: "remove",
+        });
+      })
       .then(this.props.history.push(`/mail`));
   };
 
@@ -97,7 +123,7 @@ export class MailApp extends React.Component {
           <EmailFolderList
             onToggleMenu={this.onToggleMenu}
             isMenuOpen={isMenuOpen}
-            SendNewEmail={this.SendNewEmail}
+            sendNewEmail={this.sendNewEmail}
             onSetFilter={this.onSetFilter}
           />
           <EmailList

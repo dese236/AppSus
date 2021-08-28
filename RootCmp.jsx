@@ -7,6 +7,8 @@ import { MailApp } from './js/apps/mail/page/EmailApp.jsx';
 import { AppHeader } from './js/cmps/AppHeader.jsx';
 import { BookApp } from './js/apps/Book/page/BookApp.jsx';
 import { OpenEmail } from './js/apps/mail/page/OpenEmail.jsx';
+import { UserMsg } from './js/apps/mail/cmps/UserMsg.jsx';
+
 //import { NewMail } from './js/apps/mail/page/NewMail.jsx';
 export function App() {
   return (
@@ -23,7 +25,7 @@ export function App() {
           <Route path="/" component={Home} />
         </Switch>
       </main>
-      {/*<UserMsg/>*/}
+      <UserMsg/>
     </Router>
   );
 }

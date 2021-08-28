@@ -1,6 +1,46 @@
-.EmailFullDetails {
-    height: 80vh;
-    margin: 0 auto;
-    width: 80vw;
-    background-color: #e4e3d9;
-}
+    .EmailFullDetails {
+        padding: 5px;
+        margin: 0 auto;
+        width: 80vw;
+        background-color: #f2eded;
+        font-size: 13px;
+        position: relative;
+        display: flex;
+        gap: 4px;
+        flex-direction: column;
+    }
+
+    .EmailFullDetails .subject {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .EmailFullDetails .date {
+        position: absolute;
+        top: 29px;
+        right: 48px;
+        font-size: 16px;
+    }
+
+    .EmailFullDetails .from span, .to span {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .go-back-btn {
+        width: 88px;
+        border: none;
+        margin-top: 26px;
+        height: 29px;
+        background-color: #ff000063;
+        border-radius: 32px;
+        font-size: 14px;
+    }
+
+    @media (min-width: 740px) {
+        .EmailFullDetails {
+            padding: 100px;
+            width: 50vw;
+            cursor: pointer;
+        }
+    }

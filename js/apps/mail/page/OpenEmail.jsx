@@ -21,18 +21,19 @@ export class OpenEmail extends React.Component {
     if (!email) return <div>loading</div>;
     return (
       <section className="EmailFullDetails">
-        <div>{email.subject}</div>
-        <div>
+        <div className="subject">{email.subject}</div>
+        <div className="from">
           from: <span>{email.userName}</span>{" "}
         </div>
-        <div>
+        <div className="to">
           to:<span>{email.to}</span>
         </div>
         ..........................
         <div>{email.body}</div>
-        <div className="date">date:{email.sentAt}</div>
-        <button onClick={this.onBack}>Go Back</button>;
-
+        <div className="date">
+          {new Date(email.sentAt).toLocaleString().substring(0, 15)}
+        </div>
+        <button className="go-back-btn" onClick={this.onBack}>mail box</button>
       </section>
     );
   }

@@ -12,10 +12,10 @@ export class EmailFolderList extends React.Component {
       txt: "",
     },
     newMail: false,
+    unreadCount: "",
   };
-  componentDidMount() {
-    this.removeEventBus = eventBusService.on("input-txt", this.handleChange);
-  }
+
+
 
   handleChange = (ev) => {
     const field = ev.target.name;
@@ -54,54 +54,66 @@ export class EmailFolderList extends React.Component {
     this.setState({ newMail: !this.state.newMail });
   };
 
-
+  componentDidMount() {
+    this.removeEventBus = eventBusService.on("input-txt", this.handleChange);
+    this.removeEventBus = eventBusService.on("unread-count", (unreadCount) => {
+      if (unreadCount.length === 0 && this.state.unreadCount.length !== 1)
+        return;
+      this.setState({ unreadCount });
+    });
+  }
+  componentWillUnmount() {
+    this.removeEventBus()
+  }
+  
   render() {
     return (
       <div
         className={this.props.isMenuOpen ? "aside-nav menu-open" : "aside-nav"}
       >
-        <button className='new-mail'>
         <Link to="/mail/new">
-          <img src="/../../../../css/img/plus-btn.png" />
+          <button className="new-mail">
+            <img src="./../../../../css/img/plus-btn.png" />
+          </button>
         </Link>
-        </button>
-          <div>
-            <img src="/../../../../css/img/inbox.png" />
-            <input
-              name="status"
-              type="button"
-              value="inbox"
-              onClick={this.handleChange}
-            />
-          </div>
-          <div>
-            <img src="/../../../../css/img/star.png" />
-            <input
-              name="isStared"
-              type="button"
-              value="Stared"
-              onClick={this.handleChange}
-            />
-          </div>
-          <div>
-            <img src="../../../../css/img/share.png" />
+        <div>
+          <img src="./../../../../css/img/inbox.png" />
+          <input
+            name="status"
+            type="button"
+            value="inbox"
+            onClick={this.handleChange}
+          />
+          <span> {this.state.unreadCount.length}</span>
+        </div>
+        <div>
+          <img src="./../../../../css/img/star.png" />
+          <input
+            name="isStared"
+            type="button"
+            value="Stared"
+            onClick={this.handleChange}
+          />
+        </div>
+        <div>
+          <img src="./../../../../css/img/share.png" />
 
-            <input
-              name="status"
-              type="button"
-              value="sent"
-              onClick={this.handleChange}
-            />
-          </div>
-          <div>
-            <img src="../../../../css/img/trash-can.png" />
-            <input
-              name="status"
-              type="button"
-              value="trash"
-              onClick={this.handleChange}
-            />
-          </div>
+          <input
+            name="status"
+            type="button"
+            value="sent"
+            onClick={this.handleChange}
+          />
+        </div>
+        <div>
+          <img src="../../../../css/img/trash-can.png" />
+          <input
+            name="status"
+            type="button"
+            value="trash"
+            onClick={this.handleChange}
+          />
+        </div>
       </div>
     );
   }
