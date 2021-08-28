@@ -1,11 +1,14 @@
 
 
 .navigator{
+
     position: fixed;
-    top: 80px;
-    right: 10px;
+    top: 100px;
+    right: -1px;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+
     /* gap: 5px; */
 }
 
@@ -16,6 +19,7 @@
     padding:5px;
     justify-content:center;
     align-items: center;
+    transition: 0.5s;
 }
 
 .nav-icon svg{
@@ -27,5 +31,29 @@
 .nav-icon:hover{
     background-color:white;
     border-radius: 50%;
+    border-radius: 5px;
+    color: black;
+    
+    
+    width: 80px;
+}
 
+.keep-icon:hover::before{
+    content:'Notes';
+    background-color: rgba(255, 255, 255, 0.418);
+}
+.labels-icon:hover::before{
+    content:'Lables';
+    background-color: rgba(255, 255, 255, 0.418);
+ 
+}
+.arcive-icon:hover::before{
+    content:'Arcive';
+    background-color: rgba(255, 255, 255, 0.418);
+ 
+}
+.trash-icon:hover::before{
+    content:'Trash';
+    background-color: rgba(255, 255, 255, 0.418);
+ 
 }

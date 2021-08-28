@@ -131,12 +131,10 @@ function getNotes(page) {
 }
 
 function searchNotes(key) {
-    console.log('this is the key ', key);
     const notes = gNotes.filter(note =>
         
         (note.title && note.title.toLowerCase().includes(key.toLowerCase())) || (note.txt && note.txt.toLowerCase().includes(key.toLowerCase()))
     )
-    console.log(notes, 'this are the notes');
     return Promise.resolve(notes);
 }
 
@@ -159,29 +157,11 @@ function duplicateNote(note) {
     return Promise.resolve()
 }
 
-// function pinNote(note) {
-//     duplicateNote(note)
-//     .then(() => {
-//         deleteNote(note.id)
-//     })
-//     return Promise.resolve()
-    
-// }
-
-// function deleteNote(noteId) {
-    //     var noteIdx = gNotes.findIndex(function (note) {
-        //         return noteId === note.id
-        //     })
-        //     gNotes.splice(noteIdx, 1)
-        //     storageService.saveToStorage(KEY, gNotes);
-        //     return Promise.resolve()
-        // }
-        
         function pinNote(note) {
             var noteIdx = gNotes.findIndex(function (nt) {
                 return nt.id === note.id
             })
-            gPined.unshift(gNotes.slice(noteIdx, 1)[0])
+            gNotes[noteIdx].isPined = ! gNotes[noteIdx].isPined
             storageService.saveToStorage(KEY, gNotes);
             return Promise.resolve()
         }
@@ -191,6 +171,7 @@ function duplicateNote(note) {
                 return noteId === note.id
             })
             // gDeleted.unshift(gNotes.slice(noteIdx, 1)[0])
+            if (gNotes[noteIdx].isDeleted) return  gNotes.splice(noteIdx, 1)        
             gNotes[noteIdx].isDeleted = true ;
             storageService.saveToStorage(KEY, gNotes);
             return Promise.resolve()
@@ -201,7 +182,11 @@ function duplicateNote(note) {
             const deletedNotes = notes.filter((note => note.isDeleted))
             return Promise.resolve(deletedNotes);
         }
-        function getPinedNotes() {
-            const pinedNotes =getNotes().filter((note => note.isPined))
-            return Promise.resolve(pinedNotes);
+        function getPinedNotes(noteId) {
+            var noteIdx = gNotes.findIndex(function (note) {
+                return noteId === note.id
+            })
+            gNotes[noteIdx].isPined = ! gNotes[noteIdx].isPined
+            storageService.saveToStorage(KEY, gNotes);
+            return Promise.resolve()
         }

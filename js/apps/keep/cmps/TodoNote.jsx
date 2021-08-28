@@ -60,14 +60,13 @@ export class TodoNote extends React.Component {
         const { note, onLoadNotes } = this.props
         const { todos } = note
         const { color } = this.state
-        console.log(note);
         return (
-            <div className={'todo-note-card card'} style={{ backgroundColor: color }}>
+            <div className={'todo-note-card note-card'} style={{ backgroundColor: color }}>
                 {/* <img src={note.img} alt="img" /> */}
+                <small>{note.noteDate}</small>
                 <h2>{note.title}</h2>
 
                 {todos && todos.map((todo) => {
-                    console.log(todo, "im the todo to be printed");
                     return (
 
                         <div className="todo">
@@ -84,7 +83,6 @@ export class TodoNote extends React.Component {
                 })}
 
 
-                <small>{note.noteDate}'</small>
                 <NoteOpt color={color} note={note} onLoadNotes={onLoadNotes} onSetColor={this.onSetColor} />
             </div>
         )
