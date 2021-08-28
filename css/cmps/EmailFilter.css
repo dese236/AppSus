@@ -5,7 +5,7 @@
     height: 40px;
     border-width: 0px;
     border-color: #CCCCCC;
-    background-color: #fafafa;
+    background-color: #eceaea;
     color: #000000;
     border-style: solid;
     border-radius: 6px;
@@ -15,29 +15,20 @@
 }
 
 .filter-is-read {
-
     width: 65px;
     border: none;
-
 }
 
 .search-mail-input {
     border: none;
 }
 
-
-
 @media (min-width: 740px) {
+    .search-mail-input input[type="text"] {
+        margin-left: 155px;
+        width: 200px;
+    }
     .search-mail-input {
-        border: none;
-        position: absolute;
-        top: 6%;
-        left: 40%;
+        margin-top: 20px;
     }
-
-    .search-mail-input>* {
-        width: 300px;
-
-    }
-    
 }

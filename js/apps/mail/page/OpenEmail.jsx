@@ -12,6 +12,9 @@ export class OpenEmail extends React.Component {
       this.setState({ email });
     });
   }
+  onBack = () => {
+    this.props.history.push("/mail");
+  };
 
   render() {
     const { email } = this.state;
@@ -19,11 +22,17 @@ export class OpenEmail extends React.Component {
     return (
       <section className="EmailFullDetails">
         <div>{email.subject}</div>
-        <div>from: <span>{email.userName}</span> </div>
-        <div>to:<span>{email.to}</span></div>
+        <div>
+          from: <span>{email.userName}</span>{" "}
+        </div>
+        <div>
+          to:<span>{email.to}</span>
+        </div>
         ..........................
         <div>{email.body}</div>
         <div className="date">date:{email.sentAt}</div>
+        <button onClick={this.onBack}>Go Back</button>;
+
       </section>
     );
   }

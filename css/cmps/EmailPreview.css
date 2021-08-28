@@ -32,6 +32,7 @@
     width: 100vw;
     max-width: 100%;
     padding: 6px;
+    
 }
 
 .fa-star {
@@ -85,10 +86,17 @@
         position: unset;
         flex-direction: row;
         gap: 50px;
+        flex: 1;
         align-items: center;
+        text-align: center;
     }
     .fa-star {
+        top: unset;
+        right: unset;
+        font-size: 25px;
         position: unset;
+        content: "\f005";
+        padding-left: 18px;
     }
     .email-Preview .time {
         flex: 1;
@@ -104,5 +112,6 @@
     .main-container{
         padding: 27px 34px;
     }
+
   
 }

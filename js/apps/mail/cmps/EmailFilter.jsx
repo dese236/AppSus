@@ -13,7 +13,7 @@ export class EmailFilter extends React.Component {
           type="text"
           id="txt"
           onChange={this.handleTxtChange}
-          placeholder="Enter Name"
+          placeholder="Search Email"
         />
         <select className='filter-is-read' name="isRead" onChange={this.handleTxtChange}>
           <option value="all">all</option>
