@@ -22,4 +22,5 @@
 @import './cmps/BaseEmail.css';
 @import './cmps/EmailFilter.css';
 @import './cmps/UserMsg.css';
+@import './apps/book/book.css';
 
