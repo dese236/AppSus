@@ -21,7 +21,7 @@ export function App() {
           <Route path="/mail/details/:emailId" component={OpenEmail} />
           <Route path="/mail" component={MailApp} />
           <Route path="/keep" component={KeepApp} />
-          <Route path="/book" component={BookApp} />
+          <Route  path="/book" component={BookApp} />
           <Route exact path="/" component={Home} />
         </Switch>
       </main>

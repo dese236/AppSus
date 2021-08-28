@@ -13,7 +13,7 @@ export class ImgNote extends React.Component {
         const { note , onLoadNotes } = this.props
         const {color} = this.state 
         return (
-            <div className={`note-card ${!note.title && 'img-note-card '} ${note.title && 'txt-img-card'}`} style={{backgroundColor:color}}>
+            <div className={`note-card ${!note.title ? 'img-note-card ' : ''} ${note.title ?'txt-img-card' : ''}`} style={{backgroundColor:color}}>
                <small>{note.noteDate}</small>
                 <h4>{note.title}</h4>
                 <img src={note.img} alt="img" />
