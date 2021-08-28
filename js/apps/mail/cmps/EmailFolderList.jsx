@@ -54,38 +54,36 @@ export class EmailFolderList extends React.Component {
     this.setState({ newMail: !this.state.newMail });
   };
 
+
   render() {
     return (
       <div
         className={this.props.isMenuOpen ? "aside-nav menu-open" : "aside-nav"}
       >
-        <li>
-          <Link to="/mail/new">
-            <img src="../../../../css/img/plus-btn.png" />
-          </Link>
-        </li>
-        <ul>
-          <li>
-            <img src="../../../../css/img/inbox.png" />
-
+        <button className='new-mail'>
+        <Link to="/mail/new">
+          <img src="/../../../../css/img/plus-btn.png" />
+        </Link>
+        </button>
+          <div>
+            <img src="/../../../../css/img/inbox.png" />
             <input
               name="status"
               type="button"
               value="inbox"
               onClick={this.handleChange}
             />
-          </li>
-          <li>
-            <img src="../../../../css/img/star.png" />
-
+          </div>
+          <div>
+            <img src="/../../../../css/img/star.png" />
             <input
               name="isStared"
               type="button"
               value="Stared"
               onClick={this.handleChange}
             />
-          </li>
-          <li>
+          </div>
+          <div>
             <img src="../../../../css/img/share.png" />
 
             <input
@@ -94,8 +92,8 @@ export class EmailFolderList extends React.Component {
               value="sent"
               onClick={this.handleChange}
             />
-          </li>
-          <li>
+          </div>
+          <div>
             <img src="../../../../css/img/trash-can.png" />
             <input
               name="status"
@@ -103,8 +101,7 @@ export class EmailFolderList extends React.Component {
               value="trash"
               onClick={this.handleChange}
             />
-          </li>
-        </ul>
+          </div>
       </div>
     );
   }

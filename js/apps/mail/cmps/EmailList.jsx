@@ -13,7 +13,7 @@ export function EmailList({
     <section className="emails-list">
       <div className="emails-list-heder">
         <span className="favorite">favorite</span>
-        <span  onClick={()=>{onSortEmails('name')}} className="name">name</span>
+        <span  className="name">name <i  onClick={()=>{onSortEmails('name')}} className="fas fa-sort"></i></span>
         <span className="message">message</span>
         <span onClick={()=>{onSortEmails('date')}} className="date">date</span>
       </div>

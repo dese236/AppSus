@@ -10,7 +10,7 @@ export class MailApp extends React.Component {
     emails: [],
     filterBy: null,
     userFullName: "",
-    isMenuOpen: true,
+    isMenuOpen: false,
   };
 
   componentDidMount() {

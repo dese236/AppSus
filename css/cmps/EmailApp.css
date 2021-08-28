@@ -13,9 +13,13 @@
 */
 .email-filter-nav{
     display: flex;
+    padding: 6px;
+    align-items: center;
 }
 @media (min-width: 740px) {
     .email-filter-nav{
         display: unset;
+        padding: unset;
+        align-items: unset;
     }
 }
