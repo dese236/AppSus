@@ -48,8 +48,3 @@ small {
    
 }
 
-@media (min-width: 740px) {
-    .email-details .subject{
-        font-weight: unset;
-    }
-}

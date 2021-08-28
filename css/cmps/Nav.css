@@ -2,13 +2,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 21px;
+    padding: 9px 29px;
     background-color: #333;
     color: white;
 }
 
 nav img {
-    height: 47px;
+    height: 70px;
 }
 
 .call-to-action {

@@ -1,5 +1,4 @@
 import { EmailService } from "../service/Email.service.js";
-
 export class OpenEmail extends React.Component {
   state = {
     email: null,
@@ -33,7 +32,10 @@ export class OpenEmail extends React.Component {
         <div className="date">
           {new Date(email.sentAt).toLocaleString().substring(0, 15)}
         </div>
-        <button className="go-back-btn" onClick={this.onBack}>mail box</button>
+        <div className="go-back-btn">
+          <img src="../../../../css/img/share.png" onClick={this.onBack} />
+        </div>
+        {/*<button className="go-back-btn" >mail box</button>*/}
       </section>
     );
   }
