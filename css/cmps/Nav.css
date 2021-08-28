@@ -16,7 +16,7 @@ nav img {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 42px;
+    font-size: 20px;
     border-radius: 22px;
     background-color: #7aa1a0;
     text-align: center;
@@ -37,22 +37,27 @@ nav img {
 .featuers-appsus div {
     position: absolute;
     top: 50%;
+    font-size: 34px;
     font-size: 50px;
     left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
 }
 
+
 .img-for-features {
     display: flex;
     padding-top: 100px;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 40vw;
     background-color: #333;
+    gap: 21px;
     margin: 0 auto;
 }
+
+
+
 
 /*.img-for-features img{
     height: 200px;
@@ -60,8 +65,8 @@ nav img {
 }*/
 
 .img-for-features img {
-    height: 25vw;
-    width: 25vw;
+    height: 80vw;
+    width: 80vw;
     object-fit: cover;
     border-radius: 21px;
 }
@@ -77,4 +82,28 @@ a:visited {
 a {
     transition: all 0.5s linear;
     transition: 0.4s;
+}
+
+@media (min-width: 740px) {
+    .call-to-action {
+        font-size: 42px;
+    }
+    .featuers-appsus div {
+        font-size: 50px;
+    }
+    .img-for-features {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: 40vw;
+        margin: 0 auto;
+           gap: unset;
+    }
+    .img-for-features img {
+        height: 25vw;
+        width: 25vw;
+        object-fit: cover;
+        border-radius: 21px;
+    }
 }

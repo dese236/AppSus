@@ -336,3 +336,10 @@ img.close-btn {
     display: flex;
     gap: 10px;
 }
+
+@media (max-width: 740px) {
+    .book-filter{
+        flex-direction: column;
+    }
+
+}
