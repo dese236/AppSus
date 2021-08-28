@@ -9,6 +9,8 @@
     background-color: #c3ddf500;
     cursor: pointer;
     text-align: start;
+    width: 144px;
+
     padding-left: 15px;
 }
 
@@ -16,7 +18,7 @@
     display: flex;
     align-items: center;
     padding: 3px 10px;
-    width: 100px;
+    width: 120px;
 }
 
 .aside-nav div:hover {
@@ -26,6 +28,7 @@
     cursor: pointer;
 
 }
+
 
 .aside-nav {
     position: fixed;
@@ -103,14 +106,7 @@ button.new-mail {
         align-items: center;
         background-color: #bfdddc;
     }
-    .aside-nav input {
-        cursor: pointer;
-        width: 144px;
-    }
-    .aside-nav>div {
-        cursor: pointer;
-        width: 120px;
-    }
+ 
     .aside-nav.menu-open {
         position: unset;
         transform: unset;
