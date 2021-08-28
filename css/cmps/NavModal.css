@@ -4,9 +4,9 @@
     height: 128px;
     width: 125px;
     gap: 8px;
-    position: fixed;
-    top: 84px;
-    right: 22px;
+    position: absolute;
+    top: 100px;
+    right: 30px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;

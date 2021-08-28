@@ -8,7 +8,6 @@
     color: #202124;
     border: 1px solid gray;
     position: relative;
-    height: 80px;
 }
 
 .read {
@@ -86,6 +85,8 @@
         flex: 1;
         align-items: center;
         text-align: center;
+        height: 80px;
+
     }
     .fa-star {
         top: unset;

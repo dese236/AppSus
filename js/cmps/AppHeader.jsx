@@ -18,7 +18,7 @@ class _AppHeader extends React.Component {
       <section className="app-header">
         {isModalOpen && <NavModal toggleNavModal ={this.toggleNavModal} />}
         <nav>
-          <h1 onClick={() => this.props.history.push("/")}>App Logo</h1>
+          <h1 onClick={() => this.props.history.push("/")}><img src="../../css/img/logo.png"/></h1>
           <img src="./css/img/squares.png" onClick={this.toggleNavModal} />
         </nav>
       </section>

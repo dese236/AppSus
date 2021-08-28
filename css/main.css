@@ -1,3 +1,4 @@
+@import './apps/book/book.css';
 @import './cmps/Nav.css';
 @import './setup.css';
 @import './cmps/Home.css';
@@ -22,5 +23,4 @@
 @import './cmps/BaseEmail.css';
 @import './cmps/EmailFilter.css';
 @import './cmps/UserMsg.css';
-@import './apps/book/book.css';
 
