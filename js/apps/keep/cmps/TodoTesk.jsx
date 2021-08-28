@@ -1,5 +1,4 @@
 export function TodoTesk ({todo , isDone ,setEditState, editTesk }){
-    console.log(todo , 'this is todo');
     return(
         <div>
         {!todo.isEditted && <div onClick={()=> setEditState(todo.id)}>

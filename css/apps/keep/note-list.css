@@ -1,17 +1,115 @@
 
 
-/* .reviews-list{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-} */
+
+
+
+/* list container with grid */
+/* position: relative;
+max-width: 100%;
+display: grid;
+grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+grid-template-rows: minmax(100px, auto);
+margin: 40px;
+grid-auto-flow: dense; */
+
+
+.list-container{
+    /* width :100vw;
+    display: flex; */
+}
 
 .note-list{
+    column-count: auto;
+    column-width: 310px;
+
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column; 
+    /* display: grid;  */
+    /* grid-template-columns: 1fr; */
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    /* max-height: 150vh;  */
+    /* max-width: 100vw;
+    margin-block: 30px;
+    margin: auto; */
+/* display :flex;
+flex-direction: column; */
+/* display: flex;;
+flex-direction: column; */
+ /* column-count: 3; */
+/* column-gap:10px; */
+/* height: auto;
+break-inside: avoid;
+margin-block: 30px; */
+
+/* -webkit-column-break-inside: avoid; */
+/* page-break-inside: avoid; */
+
+
+
+    /* display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: masonry;
+    masonry-auto-flow: next; */
+    /* grid-template-rows: initial; */
+
+    /* display: flex;
+    flex-direction: column;
+
+    width : 100% ; */
+
+}
+.pined-list{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: flex-start;
-    max-height: 140vh; 
-    max-width: 100vw;
+    align-content: center;
+    /* align-items: flex-start; */
+    /* justify-content: center ; */
+    /* max-height: 350px;  */
+    /* max-width: 100vw; */
     margin-block-start: 30px;
+    /* column-count: auto; */
+    /* column-width: 310px; */
 }
+/* .Pined-list{
+ display:flex
+} */
+
+
+/* column-width: 320px;
+column-gap: 15px;
+width: 90%;
+max-width: 1100px;
+margin: 50px auto;
+
+ */
+
+
+/* display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+max-width: 100vw;
+align-content: center;
+align-items: flex-start; */
+
+
+
+  /* div.container {
+     display: -webkit-flex;
+     display: flex;
+     -webkit-flex-direction: row;
+     flex-direction: row;
+     background-color: lightgray;
+  }
+  div.column {
+     display: -webkit-flex;
+     display: flex;
+     -webkit-flex-direction: column;
+     flex-direction: column;
+     background-color: lightgray;
+  } */

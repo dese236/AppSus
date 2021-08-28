@@ -19,12 +19,8 @@ export class Edit extends React.Component {
     }
 
     addNewTesk = (todo) =>{
-        console.log(todo , 'this is the argument  todo for adding')
-        // let {todos} = this.state.note 
-        // let {todos} = this.state.note
-        // console.log(todos , 'todos are before:');
         this.setState({todos :this.state.note.todos.push(todo)})
-        console.log(this.state , 'todos are :');
+
     }
 
     setClick = (ev) => {
@@ -49,10 +45,14 @@ export class Edit extends React.Component {
 
         // if(field==='todos' && value) this.removeTesk()
     }
+    convertStr2Link = (value , field) => { 
+        console.log('enter video link' , value)
+        var videoId = value.split("=")[1];
 
+        this.setState({ note: { ...this.state.note, [field]: "https://www.youtube.com/embed/"+videoId } })
+        console.log(this.state );
+    }
     upDateTodos = (todoStr , field) => {
-
-        console.log('todolis ', todoStr , 'field' , field);
         this.createTodos(todoStr).then((todos)=> {
             this.setState({ note: { ...this.state.note, [field]: todos } })
             
@@ -64,8 +64,6 @@ export class Edit extends React.Component {
         const todos = todoStr.split(',').map((todo)=>{
             return {tesk : todo , id:  utilServices.makeId(), isDone  :false , isEditted : false}
         })
-
-        console.log(todos , 'as array')
         return Promise.resolve(todos)
     }
     // onChangeUrl = (ev) => {
@@ -96,7 +94,7 @@ export class Edit extends React.Component {
                 isPined: false , 
             }
         })
-        console.log('note is the note thata wass add  :', note);
+
     }
 
     render() {
@@ -110,14 +108,14 @@ export class Edit extends React.Component {
                         <div className="note-edit" >
                             {noteType === 'txt' && <input placeholder="Whats on your mind?" className="note-content" name="content" type="textarea" onClick={this.setClick} onChange={(e) => this.onChange(e, 'txt')} />}
                             {noteType === 'img' && <input placeholder="Enter image url" className="note-content" name="content" type="textarea" onClick={this.setClick} onChange={(e) => this.onChange(e, 'img')} />}
+                            {noteType === 'video' && <input placeholder="Enter video url" className="note-content" name="content" type="textarea" onClick={this.setClick} onChange={(e) => this.onChange(e, 'img')} />}
                             {noteType === 'todos' && <input placeholder="Enter Todo list, separated by commas" className="note-content" name="content" type="textarea" onClick={this.setClick} onChange={(e) => this.onChange(e, 'todos')} />}
                             
-                            
-                            {/* {noteType === 'todos' && <TodoList todos={todos} setClick={this.setClick}  addNewTesk={this.addNewTesk}/>} */}
                             <div className="note-edit-icons" onClick={this.setClick}>
                                 <img onClick={this.onSubmit} src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE4cHgiIHdpZHRoPSIxOHB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzAwMDAwMCI+CiA8cGF0aCBkPSJtMzggMjZoLTEydjEyaC00di0xMmgtMTJ2LTRoMTJ2LTEyaDR2MTJoMTJ2NHoiLz4KIDxwYXRoIGQ9Im0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K" />
                                 <img onClick={(e) => this.setType(e, 'txt')} src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTguNjQgNC43NUwyMCA2LjExbC03Ljc5IDcuNzktMS4zNi0xLjM2IDcuNzktNy43OW0wLTJjLS41MSAwLTEuMDIuMi0xLjQxLjU5bC03Ljc5IDcuNzljLS43OC43OC0uNzggMi4wNSAwIDIuODNsMS4zNiAxLjM2Yy4zOS4zOS45LjU5IDEuNDEuNTkuNTEgMCAxLjAyLS4yIDEuNDEtLjU5bDcuNzktNy43OWMuNzgtLjc4Ljc4LTIuMDUgMC0yLjgzbC0xLjM1LTEuMzVjLS4zOS0uNC0uOS0uNi0xLjQyLS42ek03IDE0LjI1Yy0xLjY2IDAtMyAxLjM0LTMgMyAwIDEuMzEtMS4xNiAyLTIgMiAuOTIgMS4yMiAyLjQ5IDIgNCAyIDIuMjEgMCA0LTEuNzkgNC00IDAtMS42Ni0xLjM0LTMtMy0zeiIvPgo8L3N2Zz4K" />
                                 <img onClick={(e) => this.setType(e, 'img')} src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTkgM0g1Yy0xLjEgMC0yIC45LTIgMnYxNGMwIDEuMS45IDIgMiAyaDE0YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMTZINVY1aDE0djE0em0tNS03bC0zIDMuNzJMOSAxM2wtMyA0aDEybC00LTV6Ii8+Cjwvc3ZnPgo=" />
+                                <img onClick={(e) => this.setType(e, 'video')} src="https://img-premium.flaticon.com/png/128/2099/premium/2099110.png?token=exp=1630155245~hmac=4f494ab7f6e26c25f2f81474433ed813" />
                                 <img onClick={(e) => this.setType(e, 'todos')} src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj48cGF0aCBkPSJNMTkgM0g1Yy0xLjEgMC0yIC45LTIgMnYxNGMwIDEuMS45IDIgMiAyaDE0YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMTZINVY1aDE0djE0eiIvPgogIDxwYXRoIGQ9Ik0xOCA5bC0xLjQtMS40LTYuNiA2LjYtMi42LTIuNkw2IDEzbDQgNHoiLz4KPC9zdmc+Cg==" />
                                 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMjJDNi40OSAyMiAyIDE3LjUxIDIgMTJTNi40OSAyIDEyIDJzMTAgNC4wNCAxMCA5YzAgMy4zMS0yLjY5IDYtNiA2aC0xLjc3Yy0uMjggMC0uNS4yMi0uNS41IDAgLjEyLjA1LjIzLjEzLjMzLjQxLjQ3LjY0IDEuMDYuNjQgMS42N0EyLjUgMi41IDAgMCAxIDEyIDIyem0wLTE4Yy00LjQxIDAtOCAzLjU5LTggOHMzLjU5IDggOCA4Yy4yOCAwIC41LS4yMi41LS41YS41NC41NCAwIDAgMC0uMTQtLjM1Yy0uNDEtLjQ2LS42My0xLjA1LS42My0xLjY1YTIuNSAyLjUgMCAwIDEgMi41LTIuNUgxNmMyLjIxIDAgNC0xLjc5IDQtNCAwLTMuODYtMy41OS03LTgtN3oiLz48Y2lyY2xlIGN4PSI2LjUiIGN5PSIxMS41IiByPSIxLjUiLz4KICA8Y2lyY2xlIGN4PSI5LjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjE0LjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgY3g9IjE3LjUiIGN5PSIxMS41IiByPSIxLjUiLz4KPC9zdmc+Cg==" />
                                 <div className="note-edit-more-icon">

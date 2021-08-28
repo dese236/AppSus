@@ -10,11 +10,13 @@
 @import './apps/keep/add-note.css';
 @import './apps/keep/note-list.css';
 @import './apps/keep/note-preview.css';
+/* @import './apps/keep/notes.css'; */
 @import './apps/keep/edit.css';
 @import './apps/keep/navigator.css';
 @import './apps/keep/search.css';
 @import './apps/keep/todo.css';
 @import './apps/keep/note-filter.css';
+@import './apps/keep/media-queries.css';
 @import './cmps/EmailList.css';
 @import './cmps/EmailApp.css';
 @import './cmps/BaseEmail.css';
