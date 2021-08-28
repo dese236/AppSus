@@ -8,19 +8,19 @@ export class EmailDetails extends React.Component {
     return (
       <div className="email-details">
         <img
-          src="/../../../../css/img/open-mail.png"
+          src="/././././css/img/open-mail.png"
           onClick={(ev) => {
             onChangeToUnread(ev, email.id);
           }}
         />
 
         <Link to={`/mail/details/${email.id}`} onClick={this.noPropagation}>
-          <img src="/../../../../css/img/maximize.png" />
+          <img src="/././././css/img/maximize.png" />
         </Link>
 
         { (
           <img
-            src="/../../../../css/img/delete.png"
+            src="/././././css/img/delete.png"
             onClick={() => {
               onRemoveEmail(email.id);
             }}

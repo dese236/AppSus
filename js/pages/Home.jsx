@@ -14,14 +14,14 @@ export function Home() {
 
       <div id="featuresId" className="img-for-features">
         <Link to="/keep">
-          <img src="../../css/img/idea-home.png" />
+          <img src="././css/img/idea-home.png" />
         </Link>
 
         <Link to="/mail">
-          <img src="../../css/img/mail-homepage.jpg" />
+          <img src="././css/img/mail-homepage.jpg" />
         </Link>
         <Link to="/book">
-          <img src="../../css/img/book-homepage.jpg" />
+          <img src="././css/img/book-homepage.jpg" />
         </Link>
       </div>
     </section>

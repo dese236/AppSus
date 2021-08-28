@@ -71,12 +71,12 @@ export class EmailFolderList extends React.Component {
       >
         <Link to="/mail/new">
           <button className="new-mail">
-            <img src="./../../../../css/img/plus-btn.png" />
+            <img src="./././././css/img/plus-btn.png" />
           </button>
         </Link>
         <div>
         {/*<i className="fas fa-inbox"></i>*/}
-          <img src="./../../../../css/img/inboxColor.png" />
+          <img src="./././././css/img/inboxColor.png" />
           <input
             name="status"
             type="button"
@@ -86,7 +86,7 @@ export class EmailFolderList extends React.Component {
           <span> {this.state.unreadCount.length}</span>
         </div>
         <div>
-          <img src="./../../../../css/img/starColor.png" />
+          <img src="./././././css/img/starColor.png" />
           <input
             name="isStared"
             type="button"
@@ -95,7 +95,7 @@ export class EmailFolderList extends React.Component {
           />
         </div>
         <div>
-          <img src="./../../../../css/img/email.png" />
+          <img src="./././././css/img/email.png" />
 
           <input
             name="status"
@@ -105,7 +105,7 @@ export class EmailFolderList extends React.Component {
           />
         </div>
         <div>
-          <img src="../../../../css/img/trashColor.png" />
+          <img src="././././css/img/trashColor.png" />
           <input
             name="status"
             type="button"

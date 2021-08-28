@@ -33,7 +33,7 @@ export class OpenEmail extends React.Component {
           {new Date(email.sentAt).toLocaleString().substring(0, 15)}
         </div>
         <div className="go-back-btn">
-          <img src="../../../../css/img/share.png" onClick={this.onBack} />
+          <img src="././././css/img/share.png" onClick={this.onBack} />
         </div>
         {/*<button className="go-back-btn" >mail box</button>*/}
       </section>
