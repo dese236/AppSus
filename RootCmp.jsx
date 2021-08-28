@@ -22,7 +22,7 @@ export function App() {
           <Route path="/mail" component={MailApp} />
           <Route path="/keep" component={KeepApp} />
           <Route path="/book" component={BookApp} />
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </main>
       <UserMsg/>

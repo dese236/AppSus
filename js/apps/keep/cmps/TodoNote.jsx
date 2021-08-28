@@ -36,8 +36,6 @@ export class TodoNote extends React.Component {
         var currTodo = this.props.note.todos.find(function (todo) {
             return todoId === todo.id
         })
-
-        console.log(currTodo);
         currTodo.isEditted = !currTodo.isEditted
 
     }

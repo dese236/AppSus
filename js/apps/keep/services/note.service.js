@@ -91,15 +91,15 @@ var gNotes = [
         isDeleted: false,
         isPined: false,
     },
-    {
-        title: 'this is generic title',
-        img: 'https://www.youtube.com/watch?v=obkrMiyDrbs&ab_channel=didjitalvibe',
-        id: '8Huymk5',
-        noteType: 'video',
-        noteDate: '2021-7-29',
-        isDeleted: false,
-        isPined: false,
-    },
+    // {
+    //     title: 'this is generic title',
+    //     img: 'https://www.youtube.com/watch?v=obkrMiyDrbs&ab_channel=didjitalvibe',
+    //     id: '8Huymk5',
+    //     noteType: 'video',
+    //     noteDate: '2021-7-29',
+    //     isDeleted: false,
+    //     isPined: false,
+    // },
     {
         title: 'this is generic title',
         img: 'https://images.unsplash.com/photo-1528502668750-88ba58015b2f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTIyfHxibGFjayUyMHBlb3BsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60',
@@ -124,7 +124,7 @@ var gNotes = [
 var gDeleted = []
 var gPined = []
 function getNotes(page) {
-    if(page==='trash')return getDeletedNotes()
+    if (page === 'trash') return getDeletedNotes()
     // if(page===)
     gNotes = storageService.loadFromStorage(KEY) ? storageService.loadFromStorage(KEY) : gNotes
     return Promise.resolve(gNotes);
@@ -132,7 +132,7 @@ function getNotes(page) {
 
 function searchNotes(key) {
     const notes = gNotes.filter(note =>
-        
+
         (note.title && note.title.toLowerCase().includes(key.toLowerCase())) || (note.txt && note.txt.toLowerCase().includes(key.toLowerCase()))
     )
     return Promise.resolve(notes);
@@ -157,36 +157,36 @@ function duplicateNote(note) {
     return Promise.resolve()
 }
 
-        function pinNote(note) {
-            var noteIdx = gNotes.findIndex(function (nt) {
-                return nt.id === note.id
-            })
-            gNotes[noteIdx].isPined = ! gNotes[noteIdx].isPined
-            storageService.saveToStorage(KEY, gNotes);
-            return Promise.resolve()
-        }
-        
-        function deleteNote(noteId) {
-            var noteIdx = gNotes.findIndex(function (note) {
-                return noteId === note.id
-            })
-            // gDeleted.unshift(gNotes.slice(noteIdx, 1)[0])
-            if (gNotes[noteIdx].isDeleted) return  gNotes.splice(noteIdx, 1)        
-            gNotes[noteIdx].isDeleted = true ;
-            storageService.saveToStorage(KEY, gNotes);
-            return Promise.resolve()
-        }
+function pinNote(note) {
+    var noteIdx = gNotes.findIndex(function (nt) {
+        return nt.id === note.id
+    })
+    gNotes[noteIdx].isPined = !gNotes[noteIdx].isPined
+    storageService.saveToStorage(KEY, gNotes);
+    return Promise.resolve()
+}
+
+function deleteNote(noteId) {
+    var noteIdx = gNotes.findIndex(function (note) {
+        return noteId === note.id
+    })
+    // gDeleted.unshift(gNotes.slice(noteIdx, 1)[0])
+    if (gNotes[noteIdx].isDeleted) return gNotes.splice(noteIdx, 1)
+    gNotes[noteIdx].isDeleted = true;
+    storageService.saveToStorage(KEY, gNotes);
+    return Promise.resolve()
+}
 
 
-        function getDeletedNotes(notes) {
-            const deletedNotes = notes.filter((note => note.isDeleted))
-            return Promise.resolve(deletedNotes);
-        }
-        function getPinedNotes(noteId) {
-            var noteIdx = gNotes.findIndex(function (note) {
-                return noteId === note.id
-            })
-            gNotes[noteIdx].isPined = ! gNotes[noteIdx].isPined
-            storageService.saveToStorage(KEY, gNotes);
-            return Promise.resolve()
-        }
+function getDeletedNotes(notes) {
+    const deletedNotes = notes.filter((note => note.isDeleted))
+    return Promise.resolve(deletedNotes);
+}
+function getPinedNotes(noteId) {
+    var noteIdx = gNotes.findIndex(function (note) {
+        return noteId === note.id
+    })
+    gNotes[noteIdx].isPined = !gNotes[noteIdx].isPined
+    storageService.saveToStorage(KEY, gNotes);
+    return Promise.resolve()
+}

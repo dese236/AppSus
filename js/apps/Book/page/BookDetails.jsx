@@ -38,6 +38,8 @@ export class BookDetails extends React.Component {
     }
   }
 
+
+
   getPageCountTxt = () => {
     const { pageCount } = this.state.book;
     if (pageCount > 500) {
@@ -66,6 +68,7 @@ export class BookDetails extends React.Component {
   };
 
   render() {
+
     const { book } = this.state;
     if (!book) return <div>loading....</div>;
     return (
@@ -96,7 +99,7 @@ export class BookDetails extends React.Component {
           <button className="back" onClick={this.onBack}>
             Go Back
           </button>
-          <Link to={`/book/${bookService.getNextBookId(book.id)}`}>
+          <Link to={`/book/details/${bookService.getNextBookId(book.id)}`}>
             <button className="next-book-btn">Next book</button>
           </Link>
         </div>

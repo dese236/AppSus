@@ -40,7 +40,7 @@ export class BookPreview extends React.Component {
           price: {book.listPrice.amount} {currencyIcon}
         </h3>
         <img src={book.thumbnail} />
-        <Link to={`/book/${book.id}`}><button className="more-details">more details</button></Link>
+        <Link to={`/book/details/${book.id}`}><button className="more-details">more details</button></Link>
       </article>
     );
   }

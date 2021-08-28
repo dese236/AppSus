@@ -30,6 +30,7 @@
     display: flex;
     justify-content: space-around;
     display: none;
+    width : 250px ;
 }
 
 .note-opt>* {
@@ -163,6 +164,28 @@ display:none;
       margin-bottom :5px
   }
 
- .txt-note-card > h4:last-of-type{
-    
+ .txt-note-card:hover > h4:last-of-type{
+     margin-block :0px;
  }
+
+
+.note-opt img{
+    height:23px;
+    width:23px;
+
+}
+
+.note-opt .colorInput > * {
+    position: relative;
+}
+
+.note-opt .colorInput input {
+    z-index: -1;
+}
+
+.note-opt .colorInput {
+    display: inline-block;
+    height:23px;
+    width:23px;
+}
+
