@@ -11,7 +11,8 @@ export const EmailService = {
     readEmail,
     toggleIsRead,
     getEmailById,
-    sortEmails
+    sortEmails,
+    getUnreadCount
 }
 
 let gEmails = []
@@ -29,7 +30,7 @@ function query(filterBy) {
 
         if (status) {
             var emailsToShow = gEmails.filter(email =>
-                email.status === status
+                email.status === status.toLowerCase()
             )
         }
         if (isStared) {
@@ -160,8 +161,20 @@ function sortEmails(elSortBy) {
     else {
 
         if (elSortBy === 'date')
-             gEmails.sort((email1, email2) => email1.date - email2.date)
+            gEmails.sort((email1, email2) => email1.date - email2.date)
     }
     _saveEmailsToStorage()
     return Promise.resolve();
 }
+
+
+function getUnreadCount() {
+    gEmails = storageService.loadFromStorage(KEY)
+
+    let countUnread = gEmails.filter((mail) => {
+        if (!mail.isRead&& mail.status==='inbox') {
+            return mail;
+        }
+    });
+    return countUnread;
+};

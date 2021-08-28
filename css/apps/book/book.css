@@ -2,10 +2,10 @@
     box-sizing: border-box;
 }
 
-body {
+/*body {
     background-color: #fafafa;
     font-family: cursive;
-}
+}*/
 
 .book-card {
     font-size: 15px;
@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     height: 390px;
     width: 258px;
-    background-color: rgb(204 216 222);
+    background-color: #bfdddc;
     box-shadow: 1px 0px 6px 0px black;
     align-items: center;
     justify-content: center;
@@ -74,7 +74,7 @@ body {
     width: 114px;
     border: none;
     border-radius: 16px;
-    background-color: #cc3b3bd4;
+    background-color: #938989;
     font-size: 16px;
 }
 
@@ -189,14 +189,15 @@ body {
     font-family: monospace;
 }
 
-nav {
+.book-nav {
     padding-right: 30px;
     display: flex;
     justify-content: flex-end;
     gap: 18px;
     font-size: 20px;
-    background-color: #00000066;
+    background-color: #7aa1a0;
     height: 63px;
+    color: black;
     align-items: center;
 }
 
@@ -249,7 +250,7 @@ nav {
     color: #ccc;
 }
 
-.textarea {
+.book-textarea {
     height: 132px;
     font-size: 20px;
 }
@@ -334,4 +335,11 @@ img.close-btn {
 .btn-container { 
     display: flex;
     gap: 10px;
+}
+
+@media (max-width: 740px) {
+    .book-filter{
+        flex-direction: column;
+    }
+
 }

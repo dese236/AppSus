@@ -20,30 +20,14 @@ export class MailApp extends React.Component {
   }
 
   loadEmails = () => {
-    EmailService.query(this.state.filterBy)
-      .then((emails) => {
-        this.setState({ emails });
-      })
-      .then(() => {
-        let result = this.getUnreadCount();
-        if (
-          this.state.filterBy === null ||
-          this.state.filterBy.isStared !== "Stared"
-        )
-          eventBusService.emit("unread-count", result);
-      });
-  };
-  getUnreadCount = () => {
-    let countUnread = this.state.emails.filter((mail) => {
-      if (!mail.isRead && mail.status === "inbox") {
-        return mail;
-      }
+    EmailService.query(this.state.filterBy).then((emails) => {
+      this.setState({ emails });
     });
-    return countUnread;
+    let result = EmailService.getUnreadCount();
+    eventBusService.emit("unread-count", result);
   };
 
   onSetFilter = (filterBy) => {
-    debugger
     this.setState({ filterBy }, this.loadEmails);
   };
 

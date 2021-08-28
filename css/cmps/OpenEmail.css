@@ -3,7 +3,7 @@
         margin: 0 auto;
         width: 80vw;
         background-color: #f2eded;
-        font-size: 13px;
+        font-size: 15px;
         position: relative;
         display: flex;
         gap: 4px;
@@ -18,7 +18,7 @@
     .EmailFullDetails .date {
         position: absolute;
         top: 29px;
-        right: 48px;
+        right: 71px;
         font-size: 16px;
     }
 
@@ -27,14 +27,11 @@
         font-weight: 600;
     }
 
-    .go-back-btn {
-        width: 88px;
-        border: none;
-        margin-top: 26px;
-        height: 29px;
-        background-color: #ff000063;
-        border-radius: 32px;
-        font-size: 14px;
+    .go-back-btn img{
+        position: absolute;
+    top: 27px;
+    right: 21px;
+    height: 28px;
     }
 
     @media (min-width: 740px) {

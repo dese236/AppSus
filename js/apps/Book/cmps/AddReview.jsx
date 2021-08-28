@@ -73,7 +73,7 @@ export class AddReview extends React.Component {
         <textarea
           onChange={this.handleChange}
           name="content"
-          className="textarea"
+          className="book-textarea"
           id="review_content"
           placeholder="Write your review to help others learn about this business"
           required="required"

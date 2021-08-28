@@ -57,8 +57,6 @@ export class EmailFolderList extends React.Component {
   componentDidMount() {
     this.removeEventBus = eventBusService.on("input-txt", this.handleChange);
     this.removeEventBus = eventBusService.on("unread-count", (unreadCount) => {
-      if (unreadCount.length === 0 && this.state.unreadCount.length !== 1)
-        return;
       this.setState({ unreadCount });
     });
   }
@@ -73,21 +71,22 @@ export class EmailFolderList extends React.Component {
       >
         <Link to="/mail/new">
           <button className="new-mail">
-            <img src="./../../../../css/img/plus-btn.png" />
+            <img src="./././././css/img/plus-btn.png" />
           </button>
         </Link>
         <div>
-          <img src="./../../../../css/img/inbox.png" />
+        {/*<i className="fas fa-inbox"></i>*/}
+          <img src="./././././css/img/inboxColor.png" />
           <input
             name="status"
             type="button"
-            value="inbox"
+            value="Inbox"
             onClick={this.handleChange}
           />
           <span> {this.state.unreadCount.length}</span>
         </div>
         <div>
-          <img src="./../../../../css/img/star.png" />
+          <img src="./././././css/img/starColor.png" />
           <input
             name="isStared"
             type="button"
@@ -96,21 +95,21 @@ export class EmailFolderList extends React.Component {
           />
         </div>
         <div>
-          <img src="./../../../../css/img/share.png" />
+          <img src="./././././css/img/email.png" />
 
           <input
             name="status"
             type="button"
-            value="sent"
+            value="Sent"
             onClick={this.handleChange}
           />
         </div>
         <div>
-          <img src="../../../../css/img/trash-can.png" />
+          <img src="././././css/img/trashColor.png" />
           <input
             name="status"
             type="button"
-            value="trash"
+            value="Trash"
             onClick={this.handleChange}
           />
         </div>

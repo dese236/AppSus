@@ -53,8 +53,7 @@ export default class EmailPreview extends React.Component {
           </div>
           <div className="time">
             {this.getEmailDate(email.sentAt)}{" "}
-            {/*{new Date(email.sentAt).toLocaleString().substring(0, 15)}{" "}*/}
-            {/*{new Date(email.sentAt).toLocaleTimeString("en-US")}*/}
+
           </div>
         </div>
         {isDetailsShown && (

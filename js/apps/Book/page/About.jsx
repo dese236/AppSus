@@ -26,7 +26,7 @@ export class About extends React.Component {
           low and delivery is free - to help millions of used books find new
           homes in over 190 countries every year.
         </p>
-        <img src= "./assets/img/about-img.jpg"/>
+        <img src= "./img/about-img.jpg"/>
       </div>
     );
   }
