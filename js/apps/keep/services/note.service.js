@@ -8,11 +8,9 @@ export const noteServices = {
     filterNotes,
     duplicateNote,
     pinNote,
-
-
     getDeletedNotes,
-
     getPinedNotes,
+    reuseNote , 
 }
 
 const KEY = 'keepDB'
@@ -171,8 +169,8 @@ function deleteNote(noteId) {
         return noteId === note.id
     })
     // gDeleted.unshift(gNotes.slice(noteIdx, 1)[0])
-    if (gNotes[noteIdx].isDeleted) return gNotes.splice(noteIdx, 1)
-    gNotes[noteIdx].isDeleted = true;
+    if (gNotes[noteIdx].isDeleted) gNotes.splice(noteIdx, 1)
+    else  gNotes[noteIdx].isDeleted = true;
     storageService.saveToStorage(KEY, gNotes);
     return Promise.resolve()
 }
@@ -189,4 +187,16 @@ function getPinedNotes(noteId) {
     gNotes[noteIdx].isPined = !gNotes[noteIdx].isPined
     storageService.saveToStorage(KEY, gNotes);
     return Promise.resolve()
+}
+
+function reuseNote (noteId) {
+    console.log(noteId);
+    var noteIdx = gNotes.findIndex(function (note) {
+        return noteId === note.id
+    })
+    console.log(noteIdx);
+    gNotes[noteIdx].isDeleted = false;
+    storageService.saveToStorage(KEY, gNotes);
+    return Promise.resolve()
+
 }

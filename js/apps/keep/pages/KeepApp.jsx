@@ -86,7 +86,7 @@ export class KeepApp extends React.Component {
       <Navigator setPage={this.setPage} />
       <Edit isNoteContentOpen={isNoteContentOpen} openContent={this.openContent} onAddNote={this.onAddNote} onUpdateNote={this.onUpdateNote} />
       {page === 'notes' &&
-        <section>
+        <section className="note-container">
 
           <PinedList notes={notes} onLoadNotes={this.onLoadNotes} />
           <NoteList notes={notes} onLoadNotes={this.onLoadNotes} />

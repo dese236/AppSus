@@ -11,9 +11,13 @@
     border-radius: 30px;
     text-align: center;
     align-self: center; */
-    /* justify-content: center; */
-    /* display: block; */
-    /* padding-block-end: 10px; */
+
+/* justify-content: center; */
+
+/* display: block; */
+
+/* padding-block-end: 10px; */
+
 /* }
 
 .img-note-card img, .txt-img-card img,.video-note-card iframe {
@@ -21,16 +25,20 @@
     height: 100%;
     width: 100%;
     border-radius: 30px; */
-    /* border-bottom-right-radius: 0;
+
+/* border-bottom-right-radius: 0;
     border-bottom-left-radius: 0; */
+
 /* }
 
 
 .note-opt {
     display: flex;
     justify-content: space-around; */
-    /* display: none; */
-    /* visibility: hidden;
+
+/* display: none; */
+
+/* visibility: hidden;
     width : 250px ;
 }
 
@@ -39,9 +47,12 @@
 }
 
 .note-card small{ */
+
 /* display:none; */
+
 /* visibility :none;
 } */
+
 /* 
 .note-card:hover small{
     display: block;
@@ -74,6 +85,7 @@
 
     margin-block-start:5px;
 } */
+
 /* 
 .card:hover {
     opacity: 0.9;
@@ -117,14 +129,16 @@
     break-inside: avoid-column;
 
 } */
+
 /*   */
+
 /* 
 .txt-note-card:hover {
     padding-block-start: 20px;
 } */
 
-
-.note-card { /* Masonry bricks or child elements */
+.note-card {
+    /* Masonry bricks or child elements */
     /* margin :10px; */
     /* background-color: #eee; */
     /* justify-content: space-around; */
@@ -133,8 +147,7 @@
     /* width: 90%;
     margin:10px; */
     /* break-inside: avoid; */
-    
-  }
+}
 
 /* 
 
@@ -150,8 +163,11 @@
   }
   .txt-note-card:hover h4 {
       margin-top: 0px ; */
-      /* font-size: 1rem */
-  /* } */
+
+/* font-size: 1rem */
+
+/* } */
+
 /* 
  .txt-note-card>* {
       padding-inline:5px;
@@ -191,120 +207,170 @@
 }
 */
 
-
-
-
-
-.note-list{
+.note-list {
     columns: 3 300px;
     column-count: auto;
     column-gap: 10px;
-} 
+    margin-block: 20px;
+    padding-block: 10px;
+}
 
-.note-card{
-    break-inside:avoid-column;
+.note-card {
+    break-inside: avoid-column;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-items:center;
-    background-color:rgb(228, 228, 228);
-    margin-block: 10px;
-    
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    box-shadow: 0 0 10px rgb(63, 61, 61);
 }
 
-
-.img-note-card , .txt-img-card{
-width: 300px;
-height: 300px;
-
+.img-note-card, .txt-img-card {
+    width: 300px;
+    height: 300px;
 }
 
-.txt-note-card , .todo-note-card{
-    width :300px;
+.txt-note-card, .todo-note-card {
+    width: 300px;
+}
 
+.note-card>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    border-radius: 20px;
+    break-inside: avoid-column;
+}
+
+.img-note-card>img {
+    top: -62px;
+}
+
+.txt-img-card>img {
+    top: -83px;
 }
 
 /* todo */
 
-
-
-
-.todo  {
-    display:flex;
+.todo {
+    display: flex;
     justify-content: space-between;
-    margin: 10px;
-    /* gap: 5px; */
-    /* margin:5px; */
-
+    align-self: flex-start;
+    padding-inline: 10px;
+    width: 300px;
 }
 
-.todo >* {
+.todo-note-card .todo {}
+
+.todo-content {
+    display: flex;
+    justify-self: flex-start;
+    align-items: center;
+}
+
+.todo-delete-btn {
+    justify-self: flex-end;
+    align-self: center;
+}
+
+.todo-content {
+    display: flex;
+}
+
+.todo .todo-content img, .todo img.todo-delete-btn {
+    width: 25px;
+    height: 25px;
+}
+
+.todo {
     margin-block: 5px;
 }
 
-/* .todo-tesk{
-    display
+/* response to hover */
+
+.note-card small, .note-card .note-opt {
+    visibility: hidden;
+    /* display:none; */
+}
+
+.note-card .note-opt {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    background-color: white;
+    gap: 5px;
+    /* align-self: center; */
+}
+
+/* .note-card .not-opt > * {
+    margin-inline: 5px;
+} */
+
+.note-card:hover small, .note-card:hover .note-opt {
+    /* display:block; */
+    visibility: unset;
+}
+
+.txt-img-card:hover .note-opt {
+    /* visibility:unset; */
+    /* display:block; */
+    position: relative;
+    top: -115px;
+}
+
+.img-note-card:hover .note-opt {
+    position: relative;
+    top: -96px;
+}
+
+.note-opt img , .note-opt .color-picker-btn{
+    width: 23px;
+    height: 23px;
+}
+
+/* .color-picker-btn{
+   border: none;
+   background-color:rgba(128, 128, 128, 0);
+}
+
+.color-picker-btn input, .color-picker-btn img{
+    width: 23px;
+    height: 23px;
+    position: relative;
+}
+
+.color-picker-btn input{
+    z-index: -1;
+}
+
+.color-picker-btn input{
+    top: -23px;
+    left: -8px;
 
 } */
-.todo-tesk , .add-new-tesk{
-    display: flex;
-    background-color: #fff;
-    /* padding: 10px; */
-}
-.todo-tesk >* , .add-new-tesk >*{
-    gap: 5px;
+
+.delete-note{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(77, 75, 75, 0.76);
+    color: blue;
 }
 
-.todo-tesk img{
-    background-color: #fff;
+.dup-note{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(77, 75, 75, 0.76);
+   color: rgb(72, 41, 90);
+   
 }
 
-.add-new-tesk{
-    padding: 10px;
+.recycle-note{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(77, 75, 75, 0.76);
+    color: rgb(41, 90, 67);
+
 }
 
-.todo-delete-btn{
-    justify-content: flex-end;
-}
-
-.todo-content{
-    display: flex;
-}
-
-
-.todo h5{
-    margin:5px ;
-}
-
-
-
-
-
-
-
-
-
-
-
-.note-card img {
-    height:100%;
-    width: 100%;
-    object-fit: cover;
-    position: relative;
-    top: -61px;
-    break-inside:avoid-column;
-}
-
-
-.note-card small , .note-card .note-opt{
-    visibility:hidden;
-}
-
-
-
-
-
-.note-opt img{
-    width : 23px;
-    height :23px;
-}

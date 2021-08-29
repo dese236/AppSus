@@ -13,16 +13,8 @@ export class TodoNote extends React.Component {
 
     }
 
-    // componentDidMount() {
-    //     this.setState((prevState) => ({
-    //         todo: { ...this.props.note.todos.todos},
-    //       }));
-
-    // }
-
     onSetColor = (color) => {
         this.setState({ color })
-        console.log(this.state);
     }
 
     toggleTeskState = (todoId) => {

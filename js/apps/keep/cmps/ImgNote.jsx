@@ -7,7 +7,6 @@ export class ImgNote extends React.Component {
 
     onSetColor = (color) => {
         this.setState({ color })
-        console.log(this.state);
     }
     render() {
         const { note , onLoadNotes } = this.props

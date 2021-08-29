@@ -1,164 +1,52 @@
-@media screen and (max-width: 400px) {
-    .body {
-        /* overflow: hidden; */
-    }
-    .note-list, .list-container {
-        /* margin-inline:2vw; */
-        margin-inline: 0;
-        width: 95vw;
-        justify-content: center;
-    }
-    .filter-sort {
-        flex-flow: column;
-        align-items: space-between;
-        width: 95vw;
-        margin: 0;
-        /* width: 70vh ; */
-        /* margin-inline-start: 2vw; */
-        /* flex-direction: column; */
-    }
-    .search-bar {
-        width: 220px;
-    }
-    /* .note-card {
-        min-width: 250px;
-    } */
-    .note-card h4, h5 {
-        /* margin :5px ; */
-        /* font-size:0.7rem/ */
-    }
-    .img-note-card {
-        /* height: 80vw; */
-    }
-    .list-container {}
-    .edit {
-        margin: 0px;
-        justify-content: center;
-    }
-    .edit form {
-        align-self: center;
-        align-items: center;
-        margin: auto;
-    }
-    .note-form {
-        width: 100%;
-    }
-    .list-container {
-        margin: auto;
-    }
-    .filter-sort {
-        margin: auto;
-        width: 80vw
-    }
-    .filter-sort>* {
-        margin-inline: 0;
-    }
-    .edit {
-        margin: auto;
-    }
-    /* margin-inline: 10%;
-        width: 95%; */
-}
-
-@media screen and (min-width:400px) {
-    .search-bar {
-        width: 220px;
-    }
-    .filter-sort {
-        flex-flow: column;
-        align-items: space-between;
-        width: 80vw;
-        margin: auto;
-    }
-    .note-form {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width:650px) {
-    .note-list {
-        max-height: 1800px;
-    }
-    .filter-sort {
-        justify-content: space-between;
+@media screen and (max-width: 650px) {
+    .note-list{
         display: flex;
-        flex-direction: row;
-        width: 80vw;
+        flex-direction: column;
+        justify-content: center;
     }
+    .note-card{
+        width : 90vw;
+
+    }
+
+    .main{
+        display: flex;
+        justify-content: center;
+    }
+    .note-form , .filter-sort {
+        width : 90vw ;
+        margin:auto;
+        justify-content: center;
+    }
+    .filter-sort{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search , .note-filter{
+        margin-block-start : 0;
+    }
+
 }
-
-@media screen and (min-width:800px) {
-    .note-list {
-        max-height: 1500px;
+@media screen and (max-width: 400px) {
+    .note-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+    .note-card{
+        min-width : 270px;
+        /* margin: auto;
+        margin-inline: 20px; */
+        /* margin:auto; */
+        /* margin-left:5vw; */
+    }
+
+    .note-edit-icons img, .note-edit-more-icon {
+        height: 32px;
+        margin: 0 2px;
+        width: 32px;
+    }
+
+    
 }
-
-@media screen and (min-width:900px) {
-    .note-list {
-        max-height: 1400px;
-    }
-}
-
-@media screen and (min-width:1000px) {
-    .note-list {
-        max-height: 1300px;
-    }
-}
-
-@media screen and (min-width:1100px) {
-    .note-list {
-        max-height: 1200px;
-    }
-}
-
-@media screen and (min-width:1200px) {
-    .note-list {
-        max-height: 1000px;
-    }
-}
-
-@media screen and (min-width:1300px) {
-    .note-list {
-        max-height: 900px;
-    }
-}
-
-/* .note-card:nth-child(3n) {
-        order: 3;
-    }
-    .note-card:nth-child(3n+1) {
-        order: 1;
-    }
-    .note-card:nth-child(3n+2) {
-        order: 2;
-    }
-    .note-list::before, .container::after {
-        content: "";
-        flex-basis: 100%;
-        width: 0;
-        order: 2;
-    } */
-
-
-
-@media screen and (min-width:1500px) {
-    .note-list {
-        max-height: 700px;
-    }
-}
-
-/* .note-card:nth-child(5n) {
-        order: 5;
-    }
-    .note-card:nth-child(5n+1) {
-        order: 1;
-    }
-    .note-card:nth-child(5n+2) {
-        order: 2;
-    }
-    .note-card:nth-child(5n+3) {
-        order: 3;
-    }
-    .note-card:nth-child(5n+4) {
-        order: 4;
-    } */

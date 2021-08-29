@@ -38,7 +38,7 @@ export class AddNote extends React.Component {
                 noteType: 'txt'
             }
         })
-        console.log('note is :', note);
+   
     }
 
     setNoteType = () => {
@@ -50,7 +50,7 @@ export class AddNote extends React.Component {
 
     render() {
         const { txt, id, src, noteType } = this.state.note
-        console.log(id)
+
         return (
             <section className="add-note">
                 <form className="note-form" onSubmit={this.onSubmit}>

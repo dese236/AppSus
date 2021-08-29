@@ -4,7 +4,7 @@
 }
 .edit{
     display:flex;
-    width:80vw;
+    /* width:80vw; */
     flex-direction: column;
     margin: auto;    
     box-shadow: -7px -6px 18px -16px rgba(0,0,0,0.6);
@@ -64,6 +64,15 @@ input.note-title.clicked {
     align-items: center;
 }
 
-.note-edit{
+/* .note-edit{
 
+} */
+
+.note-edit-icons input {
+    background-color: rgba(240, 248, 255, 0);
+    height: 31px;
+    margin: 0 8px;
+    width: 31px;
+    padding : 0 ;
 }
+
